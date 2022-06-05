@@ -4,7 +4,7 @@ const ThemeColors = {
     green: "#759D5D",
     darkGray: "#645D5D",
     red: "#FF0000",
-    blue: "#355DEE",
+    blue: "#355DEE"
   },
 };
 
