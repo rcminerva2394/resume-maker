@@ -3,7 +3,7 @@ import React from "react";
 const Header = () => {
   return (
     <header>
-      <h1>Resume Maker</h1>
+      <h2>Resume Maker</h2>
     </header>
   );
 };

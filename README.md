@@ -9,5 +9,5 @@ This is still a work in progress. The premise is to create a resume maker that w
 - react-to-print
 
 ### Motivation
-To practice the following React hooks (useState, useReducer, useEffect, useRef) by building an interesting/useful app. I've thought of building this for personal use and probably for people whom I know are having a hard time to structure, design, and write their resume.
+To practice the following React hooks (useState, useReducer, useEffect, useRef, and useContext) by building an interesting/useful app. I've thought of building this for personal use and probably for people whom I know are having a hard time to structure, design, and write their resume.
 

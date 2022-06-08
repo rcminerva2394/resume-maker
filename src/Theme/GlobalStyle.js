@@ -10,8 +10,9 @@ body {
     margin: 0;
     font-family: 'Nunito', sans-serif;
     text-rendering: optimizeLegibility !important;
-    font-size: 14rem;
+    font-size: 16rem;
     min-height: 100%;
+    background-color: ${({theme}) => theme.colors.mainBackground};
 }
 
 ul {
@@ -20,10 +21,20 @@ ul {
 
 a {
     text-decoration: none;
+    color: #868ba2;  
+}
+
+a:hover,
+a:active {
+    color: #54596d;
 }
 
 button {
-    cursor: pointer
+    cursor: pointer;
+    border: inherit;
+    outline: none;
+    font-family: inherit;
+    font-size: inherit;
 }
 
 h1, 
@@ -35,11 +46,19 @@ h6 {
     line-height: 1.2;
   }
 
+h2 {
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin: 10rem;
+}
+
 header, footer {
-    background-color: black;
+    position: relative;
+    background-color: ${({theme}) => theme.colors.headerBackground};
     color: white;
     display: flex;
-    justify-content: center;
+    justify-content: center;  
+    align-items: center;
 }
 
 `;
