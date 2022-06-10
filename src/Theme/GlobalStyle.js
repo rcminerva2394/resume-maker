@@ -61,5 +61,9 @@ header, footer {
     align-items: center;
 }
 
+img {
+    object-fit: cover;
+}
+
 `;
 export default GlobalStyle;

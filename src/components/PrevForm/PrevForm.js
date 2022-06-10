@@ -5,7 +5,7 @@ const PrevForm = ({ photo }) => {
   return (
     <BondPaper>
       <p>This is the preview of your resume </p>
-      <img alt="profile-pic" src={URL.createObjectURL(photo)}></img>
+      {photo ? <img alt="profile-pic" src={URL.createObjectURL(photo)}></img> : ''}
     </BondPaper>
   );
 };

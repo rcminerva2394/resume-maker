@@ -13,21 +13,28 @@ const App = () => {
 
   const onUploadPhoto = (e) => {
     console.log(e.target.files[0]);
-    setPhotoUploaded(e.target.files[0])
-  }
+    setPhotoUploaded(e.target.files[0]);
+  };
+  
   return (
     <>
       <Header />
-      <Button text="EditPrev" onClick={() => {
-        console.log("Edit");
-        setIsEditing(true);
-      }}>
+      <Button
+        text="EditPrev"
+        onClick={() => {
+          console.log("Edit");
+          setIsEditing(true);
+        }}
+      >
         Edit
       </Button>
-      <Button text="EditPrev" onClick={() => {
-        console.log("Preview")
-        setIsEditing(false)
-      }}>
+      <Button
+        text="EditPrev"
+        onClick={() => {
+          console.log("Preview");
+          setIsEditing(false);
+        }}
+      >
         Preview
       </Button>
       {!isEditing && (
@@ -35,9 +42,12 @@ const App = () => {
           PDF <FaDownload />
         </Button>
       )}
-      {isEditing ? <EditForm onChange={onUploadPhoto}></EditForm> : <PrevForm photo={photoUploaded}></PrevForm>}
+      {isEditing ? (
+        <EditForm onChange={onUploadPhoto}></EditForm>
+      ) : (
+        <PrevForm photo={photoUploaded}></PrevForm>
+      )}
       <Footer />
-    
     </>
   );
 };
