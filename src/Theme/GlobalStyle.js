@@ -12,7 +12,7 @@ body {
     text-rendering: optimizeLegibility !important;
     font-size: 16rem;
     min-height: 100%;
-    background-color: ${({theme}) => theme.colors.mainBackground};
+    background-color: ${({ theme }) => theme.colors.mainBackground};
 }
 
 ul {
@@ -54,7 +54,7 @@ h2 {
 
 header, footer {
     position: relative;
-    background-color: ${({theme}) => theme.colors.headerBackground};
+    background-color: ${({ theme }) => theme.colors.headerBackground};
     color: white;
     display: flex;
     justify-content: center;  

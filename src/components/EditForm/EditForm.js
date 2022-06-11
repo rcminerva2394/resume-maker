@@ -1,12 +1,15 @@
 import React from "react";
+
 import BondPaper from "../Utils/BondPaper";
+import SideBar from "../Utils/SideBar";
 import UploadFile from "../Utils/UploadFile";
 
 const EditForm = ({ onChange }) => {
   return (
     <BondPaper>
-      <h3>This is the editable resume</h3>
-      <UploadFile onChange={onChange}></UploadFile>
+      <SideBar>
+        <UploadFile onChange={onChange}></UploadFile>
+      </SideBar>
     </BondPaper>
   );
 };
