@@ -20,7 +20,7 @@ const ButtonWrapper = styled.button`
     props.text === "EditPrev" &&
     css`
       color: ${({ theme }) => theme.colors.green};
-      border: solid 1px ${({ theme }) => theme.colors.green};
+      border: solid 2px ${({ theme }) => theme.colors.green};
 
       :hover,
       :active {
@@ -33,7 +33,7 @@ const ButtonWrapper = styled.button`
     props.text === "Download" &&
     css`
       color: ${({ theme }) => theme.colors.blue};
-      border: solid 1px ${({ theme }) => theme.colors.blue};
+      border: solid 2px ${({ theme }) => theme.colors.blue};
 
       :hover,
       :active {

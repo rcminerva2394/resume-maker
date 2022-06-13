@@ -2,8 +2,9 @@ import React from "react";
 
 import BondPaper from "../Utils/BondPaper";
 import SideBar from "../Utils/SideBar";
+import SectionWrapper from "../Utils/SectionWrapper";
 
-const PrevForm = ({ photo }) => {
+const PrevForm = ({ photo, aboutMe }) => {
   return (
     <BondPaper>
       <SideBar>
@@ -12,6 +13,10 @@ const PrevForm = ({ photo }) => {
         ) : (
           ""
         )}
+        <SectionWrapper>
+          <h2>About Me</h2>
+          <p>{aboutMe}</p>
+        </SectionWrapper>
       </SideBar>
     </BondPaper>
   );

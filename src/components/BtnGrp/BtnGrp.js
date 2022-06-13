@@ -15,14 +15,17 @@ const BtnGrp = ({ onEditPrev, onDownload, editState }) => {
       >
         Edit
       </Button>
-      <Button
-        text="EditPrev"
-        onClick={() => {
-          onEditPrev(false);
-        }}
-      >
-        Preview
-      </Button>
+      {editState && (
+        <Button
+          text="EditPrev"
+          onClick={() => {
+            onEditPrev(false);
+          }}
+        >
+          Preview
+        </Button>
+      )}
+
       {!editState && (
         <Button text="Download" onClick>
           PDF <FaDownload />

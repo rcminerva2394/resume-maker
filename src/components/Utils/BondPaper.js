@@ -12,7 +12,7 @@ const BlankFormWrapper = styled.div`
   background-color: white;
   border: 1px solid #f5f5f5;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  padding: 25rem;
+  padding: 20rem 20rem  20rem 0rem;
 `;
 
 export default BondPaper;

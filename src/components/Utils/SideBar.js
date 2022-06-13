@@ -7,11 +7,9 @@ const SideBar = ({ children }) => {
 };
 
 const Wrapper = styled.div`
-  height: inherit;
   width: 35%;
   border-right: 2px solid ${({ theme }) => theme.colors.lightGray};
- 
-
+  display: grid;
 `;
 
 export default SideBar;

@@ -3,10 +3,12 @@ import React from "react";
 import styled from "styled-components";
 import image from "../../assets/sample-photo.png";
 
-const UploadFile = ({ onChange }) => {
+const UploadFile = ({ onChange, photo }) => {
   return (
-    <Label>
-      <Placeholder>Upload<br></br>Photo</Placeholder>
+    <Label photo={photo}>
+      <Placeholder>
+        Upload<br></br>Photo
+      </Placeholder>
       <InputWrapper
         type="file"
         name="my-photo"
@@ -17,11 +19,14 @@ const UploadFile = ({ onChange }) => {
 };
 
 const Label = styled.label`
-  display: inline-block;
-  width: 51mm;
-  height: 49mm;
+  display: block;
+  width: 42mm;
+  height: 42mm;
   border: 1px solid ${({ theme }) => theme.colors.lightGray};
   border-radius: 50%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
   background-image: url(${image});
   background-repeat: no-repeat;
 `;
@@ -34,7 +39,7 @@ const Placeholder = styled.p`
   position: absolute;
   z-index: 30;
   margin-top: 70rem;
-  margin-left: 76rem;
+  margin-left: 60rem;
   font-size: 12rem;
   color: white;
   text-align: center;

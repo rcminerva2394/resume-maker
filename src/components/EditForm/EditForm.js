@@ -2,13 +2,17 @@ import React from "react";
 
 import BondPaper from "../Utils/BondPaper";
 import SideBar from "../Utils/SideBar";
-import UploadFile from "../Utils/UploadFile";
+import UploadFile from "./UploadFile";
+import AboutMe from "./AboutMe";
+import WebSocList from "./WebSocList";
 
-const EditForm = ({ onChange }) => {
+const EditForm = ({ onChange, photo, onAboutMe, aboutMe, socLinks, onEditSocLink }) => {
   return (
     <BondPaper>
       <SideBar>
-        <UploadFile onChange={onChange}></UploadFile>
+        <UploadFile onChange={onChange} photo={photo}></UploadFile>
+        <AboutMe onAboutMe={onAboutMe} aboutMe={aboutMe}></AboutMe>
+        <WebSocList socLinks={socLinks} onEditSocLink={onEditSocLink}></WebSocList>
       </SideBar>
     </BondPaper>
   );

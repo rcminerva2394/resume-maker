@@ -2,6 +2,12 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 
+
+
+* {
+    box-sizing: border-box;
+}
+
 html { 
     font-size: 6.25%; 
 }
@@ -37,19 +43,15 @@ button {
     font-size: inherit;
 }
 
-h1, 
-h2, 
-h3, 
-h4,
-h5,
-h6 {
-    line-height: 1.2;
-  }
-
-h2 {
+h1 {
     font-weight: 300;
     letter-spacing: 1px;
     margin: 10rem;
+}
+
+h2 {
+    font-family: 'Bebas Neue', cursive;
+    color: ${({ theme }) => theme.colors.darkGray};
 }
 
 header, footer {
@@ -63,6 +65,21 @@ header, footer {
 
 img {
     object-fit: cover;
+    width: 42mm;
+    height: 42mm;
+    border: 1px solid ${({ theme }) => theme.colors.lightGray};
+    border-radius: 50%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+textarea, p {
+    font-family: inherit;
+    font-size: 13rem;
+    line-height: 1.4;
+    font-weight: light;
+    margin-top: -3rem;
 }
 
 `;
