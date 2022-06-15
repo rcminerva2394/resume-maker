@@ -10,7 +10,7 @@ import {
   FaTrashAlt,
 } from "react-icons/fa";
 
-const WebSocItem = ({ link, name, onEditSocLink }) => {
+const WebSocItem = ({ id, link, name, onEditSocLink, onDelLink }) => {
   return (
     <WebSocItemWrapper>
       {name === "linkedln" ? (
@@ -22,8 +22,12 @@ const WebSocItem = ({ link, name, onEditSocLink }) => {
       ) : (
         <FaTwitter />
       )}
-      <input placeholder={link} onChange={(e) => onEditSocLink(e.target.value)}></input>
-      <FaTrashAlt />
+      <input
+        placeholder={link}
+        value={link}
+        onChange={(e) => onEditSocLink(e.target.value, id)}
+      ></input>
+      <DelIcon onClick={()=> onDelLink(id)} />
     </WebSocItemWrapper>
   );
 };
@@ -31,5 +35,14 @@ const WebSocItem = ({ link, name, onEditSocLink }) => {
 const WebSocItemWrapper = styled.li`
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 5rem;
+  align-items: center;
+`;
+
+const DelIcon = styled(FaTrashAlt)`
+  $:hover {
+    color: red;
+  }
 `;
 export default WebSocItem;

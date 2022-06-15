@@ -8,7 +8,7 @@ const SectionWrapper = ({ children }) => {
 
 const SectWrapper = styled.div`
   display: grid;
-  padding: 5rem 20rem 
+  margin: 5rem 20rem 
 `;
 
 export default SectionWrapper;

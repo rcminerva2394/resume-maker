@@ -9,8 +9,8 @@ const AboutMe = ({onAboutMe, aboutMe}) => {
       <h2>About Me</h2>
       <textarea
         placeholder="Write something about yourself of not more than 200 characters"
-        rows="7"
-        cols="10"
+        rows="5"
+        cols="7"
         autoCorrect="on"
         maxLength="200"
         value={aboutMe}

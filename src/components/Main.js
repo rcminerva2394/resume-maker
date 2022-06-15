@@ -9,7 +9,7 @@ import { v4 as uuidv4 } from "uuid";
 const INITIALSOCLINKS = [
   { name: "linkedln", link: "https://linkedIn/samplename", id: uuidv4() },
   { name: "website", link: "www.samplename.com", id: uuidv4() },
-  { name: "github", link: "https://github.com/samplename", id: uuidv4() }
+  { name: "github", link: "https://github.com/samplename", id: uuidv4() },
 ];
 
 const Main = () => {
@@ -31,10 +31,23 @@ const Main = () => {
     setDescription(value);
   };
 
-  const soclLinkEditHandler = (link) => {
+  const soclLinkEditHandler = (inputLink, id) => {
+    const updatedSocLinks = INITIALSOCLINKS.map((socLink) => {
+      if (socLink.id === id) {
+        socLink.link = inputLink;
+      }
+      return socLink;
+    });
+    setFinalSocLinks(updatedSocLinks);
+    console.log(finalSocLinks);
+  };
 
-  }
-
+  const delLinkHandler = (id) => {
+    const updatedSocLinks = finalSocLinks.filter(
+      (socLink) => socLink.id !== id
+    );
+    setFinalSocLinks(updatedSocLinks);
+  };
 
   return (
     <MainWrapper>
@@ -52,6 +65,7 @@ const Main = () => {
           aboutMe={description}
           socLinks={finalSocLinks}
           onEditSocLink={soclLinkEditHandler}
+          onDelLink={delLinkHandler}
         ></EditForm>
       ) : (
         <PrevForm photo={photoUploaded} aboutMe={description}></PrevForm>

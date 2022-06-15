@@ -28,7 +28,7 @@ const BtnGrp = ({ onEditPrev, onDownload, editState }) => {
 
       {!editState && (
         <Button text="Download" onClick>
-          PDF <FaDownload />
+          PDF <Download/>
         </Button>
       )}
     </BtnGrpWrapper>
@@ -40,5 +40,10 @@ const BtnGrpWrapper = styled.div`
   justify-content: space-between;
   margin-bottom: 20rem;
 `;
+
+const Download = styled(FaDownload)`
+color: inherit;
+background-color:inherit;
+`
 
 export default BtnGrp;

@@ -2,8 +2,6 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 
-
-
 * {
     box-sizing: border-box;
 }
@@ -23,6 +21,8 @@ body {
 
 ul {
     list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 a {
@@ -82,5 +82,13 @@ textarea, p {
     margin-top: -3rem;
 }
 
+input {
+    padding: 2rem;
+}
+
+svg {
+    font-size: 18rem;
+    color: ${({theme}) =>theme.colors.darkGray}
+}
 `;
 export default GlobalStyle;
