@@ -28,6 +28,7 @@ ul {
 a {
     text-decoration: none;
     color: #868ba2;  
+    font-size: 13rem;
 }
 
 a:hover,
@@ -87,8 +88,7 @@ input {
 }
 
 svg {
-    font-size: 18rem;
-    color: ${({theme}) =>theme.colors.darkGray}
+    color: ${({theme}) => theme.colors.darkGray };
 }
 `;
 export default GlobalStyle;

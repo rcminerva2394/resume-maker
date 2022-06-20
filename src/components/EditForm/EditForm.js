@@ -14,6 +14,7 @@ const EditForm = ({
   socLinks,
   onEditSocLink,
   onDelLink,
+  onAddSocLink
 }) => {
   return (
     <BondPaper>
@@ -24,6 +25,7 @@ const EditForm = ({
           socLinks={socLinks}
           onEditSocLink={onEditSocLink}
           onDelLink={onDelLink}
+          onAddSocLink={onAddSocLink}
         ></WebSocList>
       </SideBar>
     </BondPaper>

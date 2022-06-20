@@ -1,33 +1,18 @@
 import React from "react";
 
 import styled from "styled-components";
-
-import {
-  FaLinkedin,
-  FaGlobe,
-  FaGithub,
-  FaTwitter,
-  FaTrashAlt,
-} from "react-icons/fa";
+import Icon from "../Utils/Icon";
 
 const WebSocItem = ({ id, link, name, onEditSocLink, onDelLink }) => {
   return (
     <WebSocItemWrapper>
-      {name === "linkedln" ? (
-        <FaLinkedin />
-      ) : name === "website" ? (
-        <FaGlobe />
-      ) : name === "github" ? (
-        <FaGithub />
-      ) : (
-        <FaTwitter />
-      )}
+      <Icon name={name}/>
       <input
         placeholder={link}
         value={link}
         onChange={(e) => onEditSocLink(e.target.value, id)}
       ></input>
-      <DelIcon onClick={()=> onDelLink(id)} />
+      <Icon name="delete" onClick={() => onDelLink(id)}/>
     </WebSocItemWrapper>
   );
 };
@@ -40,9 +25,4 @@ const WebSocItemWrapper = styled.li`
   align-items: center;
 `;
 
-const DelIcon = styled(FaTrashAlt)`
-  $:hover {
-    color: red;
-  }
-`;
 export default WebSocItem;

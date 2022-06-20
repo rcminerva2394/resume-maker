@@ -10,6 +10,7 @@ const INITIALSOCLINKS = [
   { name: "linkedln", link: "https://linkedIn/samplename", id: uuidv4() },
   { name: "website", link: "www.samplename.com", id: uuidv4() },
   { name: "github", link: "https://github.com/samplename", id: uuidv4() },
+  { name: "twitter", link: "https://twitter.com/samplename", id: uuidv4() },
 ];
 
 const Main = () => {
@@ -49,6 +50,19 @@ const Main = () => {
     setFinalSocLinks(updatedSocLinks);
   };
 
+  const AddSoc = (socName) => {
+    const soc = INITIALSOCLINKS.find((socObj) => socObj.name === socName);
+
+    if (soc === undefined) {
+      alert("Please type either github, website, linkedln, or twitter")
+    } else {
+      setFinalSocLinks((prevSocLinks) => {
+        return [...prevSocLinks, soc];
+      });
+    }
+   
+  };
+
   return (
     <MainWrapper>
       <BtnGrp
@@ -66,9 +80,14 @@ const Main = () => {
           socLinks={finalSocLinks}
           onEditSocLink={soclLinkEditHandler}
           onDelLink={delLinkHandler}
+          onAddSocLink={AddSoc}
         ></EditForm>
       ) : (
-        <PrevForm photo={photoUploaded} aboutMe={description}></PrevForm>
+        <PrevForm
+          photo={photoUploaded}
+          aboutMe={description}
+          socLinks={finalSocLinks}
+        ></PrevForm>
       )}
     </MainWrapper>
   );

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { FaGithub } from "react-icons/fa";
+import Icon from "./Utils/Icon";
 
 const FooterWrapper = styled.footer`
   bottom: 0;
@@ -21,7 +21,7 @@ const Footer = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <FaGithub fontSize="24rem" />
+      <Icon name="github"/>
       </a>
     </FooterWrapper>
   );

@@ -1,8 +1,8 @@
 import React from "react";
 
 import Button from "../Utils/Button";
-import { FaDownload } from "react-icons/fa";
 import styled from "styled-components";
+import Icon from "../Utils/Icon";
 
 const BtnGrp = ({ onEditPrev, onDownload, editState }) => {
   return (
@@ -25,10 +25,9 @@ const BtnGrp = ({ onEditPrev, onDownload, editState }) => {
           Preview
         </Button>
       )}
-
       {!editState && (
-        <Button text="Download" onClick>
-          PDF <Download/>
+        <Button onClick>
+          PDF <Icon name="download" />
         </Button>
       )}
     </BtnGrpWrapper>
@@ -40,10 +39,5 @@ const BtnGrpWrapper = styled.div`
   justify-content: space-between;
   margin-bottom: 20rem;
 `;
-
-const Download = styled(FaDownload)`
-color: inherit;
-background-color:inherit;
-`
 
 export default BtnGrp;

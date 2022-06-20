@@ -2,43 +2,35 @@ import React from "react";
 
 import styled, { css } from "styled-components";
 
-const Button = ({ text, onClick, children }) => {
+const Button = ({ type, text, onClick, children }) => {
   return (
-    <ButtonWrapper onClick={onClick} text={text}>
+    <ButtonWrapper onClick={onClick} text={text} type={type || "button"}>
       {children}
     </ButtonWrapper>
   );
 };
 
 const ButtonWrapper = styled.button`
-  padding: 8rem 16rem;
-  font-weight: bold;
+  padding: 10rem 20rem;
+  font-weight: 600;
   border-radius: 4rem;
-  background-color: white;
+  letter-spacing: 1rem;
+  color: white;
+  background-color: ${({ theme }) => theme.colors.blue};
+  :hover,
+  :active {
+    background-color: ${({ theme }) => theme.colors.darkBlue};
+  }
 
   ${(props) =>
     props.text === "EditPrev" &&
     css`
-      color: ${({ theme }) => theme.colors.green};
-      border: solid 2px ${({ theme }) => theme.colors.green};
+      color: white;
+      background-color: ${({ theme }) => theme.colors.green};
 
       :hover,
       :active {
-        background-color: ${({ theme }) => theme.colors.green};
-        color: white;
-      }
-    `}
-
-  ${(props) =>
-    props.text === "Download" &&
-    css`
-      color: ${({ theme }) => theme.colors.blue};
-      border: solid 2px ${({ theme }) => theme.colors.blue};
-
-      :hover,
-      :active {
-        background-color: ${({ theme }) => theme.colors.blue};
-        color: white;
+        background-color: ${({ theme }) => theme.colors.darkGreen};
       }
     `}
 `;
