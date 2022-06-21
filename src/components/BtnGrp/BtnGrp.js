@@ -2,7 +2,7 @@ import React from "react";
 
 import Button from "../Utils/Button";
 import styled from "styled-components";
-import Icon from "../Utils/Icon";
+import { Icon } from "../Utils/Icon";
 
 const BtnGrp = ({ onEditPrev, onDownload, editState }) => {
   return (

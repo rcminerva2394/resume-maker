@@ -7,7 +7,7 @@ const AboutMe = ({ onAboutMe, aboutMe }) => {
     <SectionWrapper title="About Me">
       <textarea
         placeholder="Write something about yourself of not more than 200 characters"
-        rows="7"
+        rows="5"
         autoCorrect="on"
         maxLength="200"
         value={aboutMe}

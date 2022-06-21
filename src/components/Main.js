@@ -7,7 +7,7 @@ import PrevForm from "./PrevForm/PrevForm";
 import { v4 as uuidv4 } from "uuid";
 
 const INITIALSOCLINKS = [
-  { name: "linkedln", link: "https://linkedIn/samplename", id: uuidv4() },
+  { name: "linkedin", link: "https://linkedIn/samplename", id: uuidv4() },
   { name: "website", link: "www.samplename.com", id: uuidv4() },
   { name: "github", link: "https://github.com/samplename", id: uuidv4() },
   { name: "twitter", link: "https://twitter.com/samplename", id: uuidv4() },

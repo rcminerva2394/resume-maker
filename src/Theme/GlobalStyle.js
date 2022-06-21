@@ -12,18 +12,27 @@ html {
 
 body {
     margin: 0;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     text-rendering: optimizeLegibility !important;
     font-size: 16rem;
     min-height: 100%;
     background-color: ${({ theme }) => theme.colors.mainBackground};
+    line-height: 1.4;
 }
 
 ul {
     list-style-type: none;
     padding: 0;
-    margin: 0;
+
 }
+
+li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 5rem;
+    align-items: center;
+   }
 
 a {
     text-decoration: none;
@@ -53,6 +62,8 @@ h1 {
 h2 {
     font-family: 'Bebas Neue', cursive;
     color: ${({ theme }) => theme.colors.darkGray};
+    margin-bottom: -1.25rem;
+
 }
 
 header, footer {
@@ -75,12 +86,16 @@ img {
     transform: translateX(-50%);
 }
 
-textarea, p {
+textarea {
     font-family: inherit;
     font-size: 13rem;
     line-height: 1.4;
     font-weight: light;
-    margin-top: -3rem;
+}
+
+p {
+    font-size: 13rem;
+    font-weight: 200;
 }
 
 input {
@@ -88,7 +103,9 @@ input {
 }
 
 svg {
-    color: ${({theme}) => theme.colors.darkGray };
+    color: ${({ theme }) => theme.colors.darkGray};
+    font-size: 16rem;
 }
+
 `;
 export default GlobalStyle;

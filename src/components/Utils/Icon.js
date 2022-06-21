@@ -7,7 +7,7 @@ import {
   FaGlobe,
   FaTwitter,
   FaPlus,
-  FaTrashAlt
+  FaTrashAlt,
 } from "react-icons/fa";
 
 const icons = {
@@ -17,14 +17,13 @@ const icons = {
   website: FaGlobe,
   twitter: FaTwitter,
   plus: FaPlus,
-  delete: FaTrashAlt
+  delete: FaTrashAlt,
 };
 
-const Icon = ({ name, onClick }) => {
+export const Icon = ({ name, onClick }) => {
   const FinalIcon = icons[name];
-    // return (
-    // <FinalIcon onClick={onClick}></FinalIcon>
-    // )
+  return (   
+     <FinalIcon onClick={onClick}></FinalIcon> 
+  );
 };
 
-export default Icon;

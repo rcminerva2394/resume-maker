@@ -3,6 +3,7 @@ import React from "react";
 import BondPaper from "../Utils/BondPaper";
 import SideBar from "../Utils/SideBar";
 import SectionWrapper from "../Utils/SectionWrapper";
+import { Icon } from "../Utils/Icon";
 
 const PrevForm = ({ photo, aboutMe, socLinks }) => {
   return (
@@ -19,6 +20,7 @@ const PrevForm = ({ photo, aboutMe, socLinks }) => {
           <ul>
             {socLinks.map((socLink) => (
               <li>
+                <Icon name={socLink.name} />
                 <a
                   href={socLink.link}
                   target="_blank"
