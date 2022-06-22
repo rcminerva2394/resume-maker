@@ -18,6 +18,7 @@ body {
     min-height: 100%;
     background-color: ${({ theme }) => theme.colors.mainBackground};
     line-height: 1.4;
+    font-weight: 200;
 }
 
 ul {
@@ -29,20 +30,22 @@ ul {
 li {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    gap: 10rem;
     margin-bottom: 5rem;
     align-items: center;
    }
 
 a {
     text-decoration: none;
-    color: #868ba2;  
+    color: black;
     font-size: 13rem;
+    text-align: start;
+    font-weight: light;
 }
 
 a:hover,
 a:active {
-    color: #54596d;
+    color: ${({theme}) => theme.colors.darkGray};
 }
 
 button {
@@ -66,7 +69,7 @@ h2 {
 
 }
 
-header, footer {
+header {
     position: relative;
     background-color: ${({ theme }) => theme.colors.headerBackground};
     color: white;
@@ -100,11 +103,6 @@ p {
 
 input {
     padding: 2rem;
-}
-
-svg {
-    color: ${({ theme }) => theme.colors.darkGray};
-    font-size: 16rem;
 }
 
 `;

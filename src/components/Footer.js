@@ -5,9 +5,10 @@ import { Icon } from "./Utils/Icon";
 const FooterWrapper = styled.footer`
   bottom: 0;
   width: 100%;
-  color: #868ba2;
-  background-color: transparent;
   gap: 10rem;
+  display: flex;
+  justify-content: center;  
+  align-items: center;
 `;
 
 const Footer = () => {
@@ -20,7 +21,7 @@ const Footer = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Icon name="github" />
+        <Icon name="github" fontSize={"18rem"} />
       </a>
     </FooterWrapper>
   );

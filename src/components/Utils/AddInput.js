@@ -2,16 +2,19 @@ import React from "react";
 
 import Button from "./Button";
 import styled from "styled-components";
-import { FaPlus } from "react-icons/fa";
 
-const AddInput = ({ onChange, onSubmit, placeholder }) => {
+const AddInput = ({ onChange, onSubmit, placeholder, children }) => {
   return (
-    <Form onSubmit = {onSubmit}>
+    <Form onSubmit={onSubmit}>
       <label>
-        <input type="text" placeholder={placeholder} onChange={onChange}></input>
+        <input
+          type="text"
+          placeholder={placeholder}
+          onChange={onChange}
+        ></input>
       </label>
-      <Button type="submit" text="Add">
-        <FaPlus />
+      <Button type="submit" height={"25px"} padding={"auto"}>
+        {children}
       </Button>
     </Form>
   );

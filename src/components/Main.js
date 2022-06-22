@@ -51,16 +51,20 @@ const Main = () => {
   };
 
   const AddSoc = (socName) => {
-    const soc = INITIALSOCLINKS.find((socObj) => socObj.name === socName);
+    const checkSoc = finalSocLinks.find((socObj) => socObj.name === socName);
 
-    if (soc === undefined) {
-      alert("Please type either github, website, linkedln, or twitter")
+    if (!checkSoc) {
+      let soc = INITIALSOCLINKS.find((socObj) => socObj.name === socName);
+      if (soc === undefined) {
+        alert("Please type either github, website, linkedln, or twitter");
+      } else {
+        setFinalSocLinks((prevSocLinks) => {
+          return [...prevSocLinks, soc];
+        });
+      }
     } else {
-      setFinalSocLinks((prevSocLinks) => {
-        return [...prevSocLinks, soc];
-      });
+      alert("Social account already exists");
     }
-   
   };
 
   return (

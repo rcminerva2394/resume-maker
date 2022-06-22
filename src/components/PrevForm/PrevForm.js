@@ -20,7 +20,7 @@ const PrevForm = ({ photo, aboutMe, socLinks }) => {
           <ul>
             {socLinks.map((socLink) => (
               <li>
-                <Icon name={socLink.name} />
+                <Icon name={socLink.name} color={"#645D5D"} />
                 <a
                   href={socLink.link}
                   target="_blank"

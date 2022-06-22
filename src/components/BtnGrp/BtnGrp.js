@@ -4,11 +4,11 @@ import Button from "../Utils/Button";
 import styled from "styled-components";
 import { Icon } from "../Utils/Icon";
 
-const BtnGrp = ({ onEditPrev, onDownload, editState }) => {
+const BtnGrp = ({ onEditPrev, onDownload, editState, }) => {
   return (
     <BtnGrpWrapper>
       <Button
-        text="EditPrev"
+        primary
         onClick={() => {
           onEditPrev(true);
         }}
@@ -17,7 +17,7 @@ const BtnGrp = ({ onEditPrev, onDownload, editState }) => {
       </Button>
       {editState && (
         <Button
-          text="EditPrev"
+          secondary
           onClick={() => {
             onEditPrev(false);
           }}

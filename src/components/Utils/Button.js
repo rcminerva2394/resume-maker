@@ -1,38 +1,54 @@
 import React from "react";
 
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
-const Button = ({ type, text, onClick, children }) => {
+const Button = ({ type, primary, secondary, onClick, children, height, padding }) => {
   return (
-    <ButtonWrapper onClick={onClick} text={text} type={type || "button"}>
+    <ButtonWrapper
+      onClick={onClick}
+      type={type || "button"}
+      primary={primary}
+      secondary={secondary}
+      height={height}
+      padding={padding}
+    >
       {children}
     </ButtonWrapper>
   );
 };
 
 const ButtonWrapper = styled.button`
-  padding: 10rem 20rem;
+  height: ${(props) => props.height ? props.height : `inherit`};
+  padding: ${(props) => props.padding ? props.padding : `8rem 16rem`};
   font-weight: 600;
   border-radius: 4rem;
   letter-spacing: 1rem;
-  color: white;
-  background-color: ${({ theme }) => theme.colors.blue};
-  :hover,
-  :active {
-    background-color: ${({ theme }) => theme.colors.darkBlue};
+  color: ${(props) =>
+    props.primary
+      ? "white"
+      : props.secondary
+      ? ({ theme }) => theme.colors.darkGreen
+      : "white"};
+  background-color: ${(props) =>
+    props.primary
+      ? ({ theme }) => theme.colors.green
+      : props.secondary
+      ? "white"
+      : ({ theme }) => theme.colors.darkBlue};
+  border: 2rem solid
+    ${(props) =>
+      props.primary
+        ? ({ theme }) => theme.colors.darkGreen
+        : props.secondary
+        ? ({ theme }) => theme.colors.darkGreen
+        : ({ theme }) => theme.colors.blue};
+  :hover {
+    background-color: ${(props) =>
+      props.primary
+        ? ({ theme }) => theme.colors.darkGreen
+        : props.secondary
+        ? "#d5e3cc"
+        : ({ theme }) => theme.colors.blue};
   }
-
-  ${(props) =>
-    props.text === "EditPrev" &&
-    css`
-      color: white;
-      background-color: ${({ theme }) => theme.colors.green};
-
-      :hover,
-      :active {
-        background-color: ${({ theme }) => theme.colors.darkGreen};
-      }
-    `}
 `;
-
 export default Button;
