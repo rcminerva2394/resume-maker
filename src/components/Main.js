@@ -6,6 +6,9 @@ import EditForm from "./EditForm/EditForm";
 import PrevForm from "./PrevForm/PrevForm";
 import { v4 as uuidv4 } from "uuid";
 
+const PLACEHOLDER =
+  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia molestiae quas vel sint commodi repudiandae consequuntur. sint commodi repudiandae consequuntur";
+
 const INITIALSOCLINKS = [
   { name: "linkedin", link: "https://linkedIn/samplename", id: uuidv4() },
   { name: "website", link: "www.samplename.com", id: uuidv4() },
@@ -13,11 +16,23 @@ const INITIALSOCLINKS = [
   { name: "twitter", link: "https://twitter.com/samplename", id: uuidv4() },
 ];
 
+const TOOLSKILLS = [
+  { name: "HTML", id: uuidv4() },
+  { name: "CSS", id: uuidv4() },
+];
+
+const SOFTSKILLS = [
+  { name: "Adaptability", id: uuidv4() },
+  { name: "Problem Solving", id: uuidv4() },
+];
+
 const Main = () => {
   const [isEditing, setIsEditing] = useState(true);
   const [photoUploaded, setPhotoUploaded] = useState(null);
-  const [description, setDescription] = useState("");
+  const [description, setDescription] = useState(PLACEHOLDER);
   const [finalSocLinks, setFinalSocLinks] = useState(INITIALSOCLINKS);
+  const [toolSkills, setToolSkills] = useState(TOOLSKILLS);
+  const [softSkills, setSoftSkills] = useState(SOFTSKILLS);
 
   const editPrev = (e) => {
     setIsEditing(e);
@@ -40,7 +55,6 @@ const Main = () => {
       return socLink;
     });
     setFinalSocLinks(updatedSocLinks);
-    console.log(finalSocLinks);
   };
 
   const delLinkHandler = (id) => {
@@ -67,6 +81,30 @@ const Main = () => {
     }
   };
 
+  const skillEditHandler = (skillName, id) => {
+    const updatedSkills = TOOLSKILLS.map((skill) => {
+      if (skill.id === id) {
+        skill.name = skillName;
+      }
+      return skill;
+    });
+    setToolSkills(updatedSkills);
+    console.log(updatedSkills);
+  };
+
+  const addToolSkillHandler = (skill) => {
+    setToolSkills((prevToolSkills) => {
+      return [...prevToolSkills, { name: skill, id: uuidv4() }];
+    });
+  };
+
+  const addSoftSkillHandler = (skill) => {
+    setSoftSkills((prevSoftSkills) => {
+      return [...prevSoftSkills, { name: skill, id: uuidv4() }];
+    });
+  };
+
+
   return (
     <MainWrapper>
       <BtnGrp
@@ -85,12 +123,19 @@ const Main = () => {
           onEditSocLink={soclLinkEditHandler}
           onDelLink={delLinkHandler}
           onAddSocLink={AddSoc}
+          toolSkills={toolSkills}
+          onEditSkill={skillEditHandler}
+          softSkills={softSkills}
+          onAddToolSkill={addToolSkillHandler}
+          onAddSoftSkill={addSoftSkillHandler}
         ></EditForm>
       ) : (
         <PrevForm
           photo={photoUploaded}
           aboutMe={description}
           socLinks={finalSocLinks}
+          toolSkills={toolSkills}
+          softSkills={softSkills}
         ></PrevForm>
       )}
     </MainWrapper>

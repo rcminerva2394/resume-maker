@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
-import SectionWrapper from "../Utils/SectionWrapper";
+import SectionWrapper from "../../Utils/SectionWrapper";
 import WebSocItem from "./WebSocItem";
-import AddInput from "../Utils/AddInput";
-import { Icon } from "../Utils/Icon";
+import AddInput from "../../Utils/AddInput";
+
 
 const WebSocList = ({ socLinks, onEditSocLink, onDelLink, onAddSocLink }) => {
   const [addedSoc, setAddedSoc] = useState("");
@@ -24,9 +24,7 @@ const WebSocList = ({ socLinks, onEditSocLink, onDelLink, onAddSocLink }) => {
         onChange={onAddSoc}
         onSubmit={addNewSoc}
         placeholder={"twitter, linkedin, website, github"}
-      >
-        <Icon name={"plus"} fontSize={"8rem"} />
-      </AddInput>
+      />
       <ul>
         {socLinks.map((soc) => (
           <WebSocItem

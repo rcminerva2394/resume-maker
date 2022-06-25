@@ -1,17 +1,21 @@
 import React from "react";
 
-import { Icon } from "../Utils/Icon";
+import { Icon } from "../../Utils/Icon";
+import Button from "../../Utils/Button";
 
 const WebSocItem = ({ id, link, name, onEditSocLink, onDelLink }) => {
   return (
     <li>
-      <Icon name={name} color={"#645D5D"}/>
+      <Icon name={name} />
       <input
+        type="text"
         placeholder={link}
         value={link}
         onChange={(e) => onEditSocLink(e.target.value, id)}
       ></input>
-      <Icon name="delete" onClick={() => onDelLink(id)} color={"red"} />
+      <Button onClick={() => onDelLink(id)} padding={"auto"} margin={"-5rem"}>
+        <Icon name="delete" />
+      </Button>
     </li>
   );
 };

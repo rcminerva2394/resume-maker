@@ -1,7 +1,5 @@
 import React from "react";
 
-import styled from "styled-components";
-
 import {
   FaDownload,
   FaGithub,
@@ -22,15 +20,7 @@ const icons = {
   delete: FaTrashAlt,
 };
 
-export const Icon = ({ name, onClick, fontSize, color }) => {
+export const Icon = ({ name, onClick }) => {
   const FinalIcon = icons[name];
-
-  const FinalStyledIcon = styled(FinalIcon)`
-  font-size: ${fontSize || "inherit"};
-  color: ${ color || 'inherit'};
-  `
-  return (   
-     <FinalStyledIcon onClick={onClick}></FinalStyledIcon> 
-  );
+  return <FinalIcon onClick={onClick}></FinalIcon>;
 };
-

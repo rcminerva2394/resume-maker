@@ -2,15 +2,29 @@ import React from "react";
 
 import styled from "styled-components";
 
-const Button = ({ type, primary, secondary, onClick, children, height, padding }) => {
+const Button = ({
+  type,
+  primary,
+  secondary,
+  tertiary,
+  onClick,
+  children,
+  height,
+  padding,
+  fontSize,
+  margin
+}) => {
   return (
     <ButtonWrapper
       onClick={onClick}
       type={type || "button"}
       primary={primary}
       secondary={secondary}
+      tertiary={tertiary}
       height={height}
       padding={padding}
+      fontSize={fontSize}
+      margin={margin}
     >
       {children}
     </ButtonWrapper>
@@ -18,8 +32,10 @@ const Button = ({ type, primary, secondary, onClick, children, height, padding }
 };
 
 const ButtonWrapper = styled.button`
-  height: ${(props) => props.height ? props.height : `inherit`};
-  padding: ${(props) => props.padding ? props.padding : `8rem 16rem`};
+  height: ${(props) => (props.height ? props.height : `inherit`)};
+  padding: ${(props) => (props.padding ? props.padding : `8rem 16rem`)};
+  font-size: ${(props) => (props.fontSize ? props.fontSize : "inherit")};
+  margin-left: ${(props) => props.margin ? props.margin : 0};
   font-weight: 600;
   border-radius: 4rem;
   letter-spacing: 1rem;
@@ -28,27 +44,35 @@ const ButtonWrapper = styled.button`
       ? "white"
       : props.secondary
       ? ({ theme }) => theme.colors.darkGreen
-      : "white"};
+      : props.tertiary
+      ? "white"
+      : "red"};
   background-color: ${(props) =>
     props.primary
       ? ({ theme }) => theme.colors.green
       : props.secondary
       ? "white"
-      : ({ theme }) => theme.colors.darkBlue};
+      : props.tertiary
+      ? ({ theme }) => theme.colors.darkBlue
+      : "transparent"};
   border: 2rem solid
     ${(props) =>
       props.primary
         ? ({ theme }) => theme.colors.darkGreen
         : props.secondary
         ? ({ theme }) => theme.colors.darkGreen
-        : ({ theme }) => theme.colors.blue};
+        : props.tertiary
+        ? ({ theme }) => theme.colors.blue
+        : "none"};
   :hover {
     background-color: ${(props) =>
       props.primary
         ? ({ theme }) => theme.colors.darkGreen
         : props.secondary
         ? "#d5e3cc"
-        : ({ theme }) => theme.colors.blue};
+        : props.tertiary
+        ? ({ theme }) => theme.colors.blue
+        : "transparent"};
   }
 `;
 export default Button;

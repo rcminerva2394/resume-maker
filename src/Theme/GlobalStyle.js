@@ -14,7 +14,7 @@ body {
     margin: 0;
     font-family: 'Nunito Sans', sans-serif;
     text-rendering: optimizeLegibility !important;
-    font-size: 16rem;
+    font-size: 14rem;
     min-height: 100%;
     background-color: ${({ theme }) => theme.colors.mainBackground};
     line-height: 1.4;
@@ -24,13 +24,11 @@ body {
 ul {
     list-style-type: none;
     padding: 0;
-
 }
 
 li {
     display: flex;
-    flex-direction: row;
-    gap: 10rem;
+    gap: 10rem; 
     margin-bottom: 5rem;
     align-items: center;
    }
@@ -38,14 +36,13 @@ li {
 a {
     text-decoration: none;
     color: black;
-    font-size: 13rem;
     text-align: start;
     font-weight: light;
 }
 
 a:hover,
 a:active {
-    color: ${({theme}) => theme.colors.darkGray};
+    color: ${({ theme }) => theme.colors.darkGray};
 }
 
 button {
@@ -66,6 +63,7 @@ h2 {
     font-family: 'Bebas Neue', cursive;
     color: ${({ theme }) => theme.colors.darkGray};
     margin-bottom: -1.25rem;
+    font-size: 24rem;
 
 }
 
@@ -91,18 +89,21 @@ img {
 
 textarea {
     font-family: inherit;
-    font-size: 13rem;
+    ${'' /* font-size: 13rem; */}
     line-height: 1.4;
     font-weight: light;
 }
 
 p {
-    font-size: 13rem;
     font-weight: 200;
 }
 
 input {
     padding: 2rem;
+}
+
+svg {
+    color: inherit;
 }
 
 `;

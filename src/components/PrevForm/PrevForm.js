@@ -5,7 +5,7 @@ import SideBar from "../Utils/SideBar";
 import SectionWrapper from "../Utils/SectionWrapper";
 import { Icon } from "../Utils/Icon";
 
-const PrevForm = ({ photo, aboutMe, socLinks }) => {
+const PrevForm = ({ photo, aboutMe, socLinks, toolSkills, softSkills }) => {
   return (
     <BondPaper>
       <SideBar>
@@ -19,7 +19,7 @@ const PrevForm = ({ photo, aboutMe, socLinks }) => {
         <SectionWrapper title="Website & Social Links">
           <ul>
             {socLinks.map((socLink) => (
-              <li>
+              <li key={socLink.id}>
                 <Icon name={socLink.name} color={"#645D5D"} />
                 <a
                   href={socLink.link}
@@ -31,6 +31,9 @@ const PrevForm = ({ photo, aboutMe, socLinks }) => {
               </li>
             ))}
           </ul>
+        </SectionWrapper>
+        <SectionWrapper title="Skills">
+          ul
         </SectionWrapper>
       </SideBar>
     </BondPaper>

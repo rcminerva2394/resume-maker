@@ -2,8 +2,9 @@ import React from "react";
 
 import Button from "./Button";
 import styled from "styled-components";
+import { Icon } from "../Utils/Icon";
 
-const AddInput = ({ onChange, onSubmit, placeholder, children }) => {
+const AddInput = ({ onChange, onSubmit, placeholder }) => {
   return (
     <Form onSubmit={onSubmit}>
       <label>
@@ -13,8 +14,14 @@ const AddInput = ({ onChange, onSubmit, placeholder, children }) => {
           onChange={onChange}
         ></input>
       </label>
-      <Button type="submit" height={"25px"} padding={"auto"}>
-        {children}
+      <Button
+        type="submit"
+        height={"25px"}
+        padding={"auto"}
+        fontSize={"12rem"}
+        tertiary
+      >
+        <Icon name={"plus"} />
       </Button>
     </Form>
   );

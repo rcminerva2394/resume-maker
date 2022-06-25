@@ -26,7 +26,7 @@ const BtnGrp = ({ onEditPrev, onDownload, editState, }) => {
         </Button>
       )}
       {!editState && (
-        <Button onClick>
+        <Button tertiary onClick>
           PDF <Icon name="download" />
         </Button>
       )}
@@ -36,8 +36,9 @@ const BtnGrp = ({ onEditPrev, onDownload, editState, }) => {
 
 const BtnGrpWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 20rem;
+  justify-content: flex-start;
+  margin: 20rem 0;
+  gap: 10rem;
 `;
 
 export default BtnGrp;

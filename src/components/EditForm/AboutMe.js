@@ -9,7 +9,7 @@ const AboutMe = ({ onAboutMe, aboutMe }) => {
         placeholder="Write something about yourself of not more than 200 characters"
         rows="5"
         autoCorrect="on"
-        maxLength="200"
+        maxLength="250"
         value={aboutMe}
         onChange={(e) => onAboutMe(e.target.value)}
       ></textarea>

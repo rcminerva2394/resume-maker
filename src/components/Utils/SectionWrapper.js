@@ -11,7 +11,7 @@ const SectionWrapper = ({ title, children }) => {
   );
 };
 
-const SectWrapper = styled.div`
+const SectWrapper = styled.section`
   display: grid;
   margin: 5rem 20rem 0rem 20rem;
   padding-bottom: 10rem;

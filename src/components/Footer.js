@@ -9,6 +9,7 @@ const FooterWrapper = styled.footer`
   display: flex;
   justify-content: center;  
   align-items: center;
+  color: ${({theme}) => theme.colors.darkGray};
 `;
 
 const Footer = () => {

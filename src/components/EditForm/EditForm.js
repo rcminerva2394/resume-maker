@@ -4,7 +4,8 @@ import BondPaper from "../Utils/BondPaper";
 import SideBar from "../Utils/SideBar";
 import UploadFile from "./UploadFile";
 import AboutMe from "./AboutMe";
-import WebSocList from "./WebSocList";
+import WebSocList from "./WebSocLinks/WebSocList";
+import Skills from "./Skills/Skills";
 
 const EditForm = ({
   onChange,
@@ -14,7 +15,12 @@ const EditForm = ({
   socLinks,
   onEditSocLink,
   onDelLink,
-  onAddSocLink
+  onAddSocLink,
+  toolSkills,
+  onEditSkill,
+  softSkills,
+  onAddToolSkill,
+  onAddSoftSkill,
 }) => {
   return (
     <BondPaper>
@@ -27,6 +33,13 @@ const EditForm = ({
           onDelLink={onDelLink}
           onAddSocLink={onAddSocLink}
         ></WebSocList>
+        <Skills
+          toolSkills={toolSkills}
+          onEditSkill={onEditSkill}
+          softSkills={softSkills}
+          onAddToolSkill={onAddToolSkill}
+          onAddSoftSkill={onAddSoftSkill}
+        ></Skills>
       </SideBar>
     </BondPaper>
   );

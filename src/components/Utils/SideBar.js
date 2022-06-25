@@ -7,7 +7,7 @@ const SideBar = ({ children }) => {
 };
 
 const Wrapper = styled.div`
-  width: 35%;
+  max-width: 35%;
   border-right: 2px solid ${({ theme }) => theme.colors.lightGray};
   display: grid;
 `;
