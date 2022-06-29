@@ -1,9 +1,8 @@
 import React from "react";
 
 import { Icon } from "../../Utils/Icon";
-import Button from "../../Utils/Button";
 
-const WebSocItem = ({ id, link, name, onEditSocLink, onDelLink }) => {
+const WebSocItem = ({ id, link, name, onEditSocLink }) => {
   return (
     <li>
       <Icon name={name} />
@@ -13,9 +12,6 @@ const WebSocItem = ({ id, link, name, onEditSocLink, onDelLink }) => {
         value={link}
         onChange={(e) => onEditSocLink(e.target.value, id)}
       ></input>
-      <Button onClick={() => onDelLink(id)} padding={"auto"} margin={"-5rem"}>
-        <Icon name="delete" />
-      </Button>
     </li>
   );
 };

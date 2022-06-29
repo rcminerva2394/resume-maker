@@ -2,19 +2,13 @@ import React from "react";
 
 import styled from "styled-components";
 
-const SkillsList = ({ skills, onChange }) => {
+import SkillItem from "./SkillItem";
+
+const SkillsList = ({ skills, onEditSkill, onDelSkill}) => {
   return (
     <SkillsListWrapper>
       {skills.map((skill) => (
-        <li key={skill.id}>
-          <SkillInput
-            onChange={(e) => onChange(e.target.value, skill.id)}
-            type="text"
-            value={skill.name}
-            size={skill.name.length - 2}
-            max-maxLength={skill.name.length}
-          />
-        </li>
+        <SkillItem key={skill.id} id={skill.id} onEditSkill={onEditSkill} skill={skill.name} onDelSkill={onDelSkill}/>
       ))}
     </SkillsListWrapper>
   );
@@ -28,13 +22,4 @@ const SkillsListWrapper = styled.ul`
   flex-wrap: wrap;
 `;
 
-const SkillInput = styled.input`
-  border: none;
-  background-color: ${({ theme }) => theme.colors.darkGray};
-  padding: 6.5rem 13rem;
-  width: fit-content;
-  color: white;
-  border-radius: 4rem;
-  text-align: center;
-`;
 export default SkillsList;

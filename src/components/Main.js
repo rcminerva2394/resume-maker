@@ -10,21 +10,37 @@ const PLACEHOLDER =
   "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia molestiae quas vel sint commodi repudiandae consequuntur. sint commodi repudiandae consequuntur";
 
 const INITIALSOCLINKS = [
-  { name: "linkedin", link: "https://linkedIn/samplename", id: uuidv4() },
   { name: "website", link: "www.samplename.com", id: uuidv4() },
+  { name: "linkedin", link: "https://linkedIn/samplename", id: uuidv4() },
   { name: "github", link: "https://github.com/samplename", id: uuidv4() },
   { name: "twitter", link: "https://twitter.com/samplename", id: uuidv4() },
+  { name: "facebook", link: "https://facebook.com/samplename", id: uuidv4() },
+  { name: "youtube", link: "https://youtube.com/samplename", id: uuidv4() },
 ];
 
 const TOOLSKILLS = [
+  { name: "Click me to edit", id: uuidv4() },
   { name: "HTML", id: uuidv4() },
   { name: "CSS", id: uuidv4() },
+  { name: "JavaScript", id: uuidv4() },
 ];
 
 const SOFTSKILLS = [
+  { name: "Click me to edit", id: uuidv4() },
   { name: "Adaptability", id: uuidv4() },
-  { name: "Problem Solving", id: uuidv4() },
+  { name: "Empathy", id: uuidv4() },
+  { name: "Time Management", id: uuidv4() },
+  { name: "Communication", id: uuidv4() },
 ];
+
+const PERSONALINFO = {
+  firstname: "SAMPLE",
+  lastname: "NAME",
+  job: "Full-stack web developer",
+  email: "sampleemail@gmail.com",
+  number: "(63)963-234667",
+  address: "155 4th St. Ste 1050San Francisco, CA 94103, USA",
+};
 
 const Main = () => {
   const [isEditing, setIsEditing] = useState(true);
@@ -33,6 +49,7 @@ const Main = () => {
   const [finalSocLinks, setFinalSocLinks] = useState(INITIALSOCLINKS);
   const [toolSkills, setToolSkills] = useState(TOOLSKILLS);
   const [softSkills, setSoftSkills] = useState(SOFTSKILLS);
+  const [personalInfo, setPersonalInfo] = useState(PERSONALINFO);
 
   const editPrev = (e) => {
     setIsEditing(e);
@@ -57,53 +74,59 @@ const Main = () => {
     setFinalSocLinks(updatedSocLinks);
   };
 
-  const delLinkHandler = (id) => {
-    const updatedSocLinks = finalSocLinks.filter(
-      (socLink) => socLink.id !== id
-    );
-    setFinalSocLinks(updatedSocLinks);
-  };
-
-  const AddSoc = (socName) => {
-    const checkSoc = finalSocLinks.find((socObj) => socObj.name === socName);
-
-    if (!checkSoc) {
-      let soc = INITIALSOCLINKS.find((socObj) => socObj.name === socName);
-      if (soc === undefined) {
-        alert("Please type either github, website, linkedln, or twitter");
-      } else {
-        setFinalSocLinks((prevSocLinks) => {
-          return [...prevSocLinks, soc];
-        });
-      }
-    } else {
-      alert("Social account already exists");
-    }
-  };
-
-  const skillEditHandler = (skillName, id) => {
-    const updatedSkills = TOOLSKILLS.map((skill) => {
+  const toolSkillEditHandler = (skillName, id) => {
+    const updatedSkills = toolSkills.map((skill) => {
       if (skill.id === id) {
         skill.name = skillName;
       }
       return skill;
     });
     setToolSkills(updatedSkills);
-    console.log(updatedSkills);
   };
 
-  const addToolSkillHandler = (skill) => {
+  const softSkillEditHandler = (skillName, id) => {
+    const updatedSkills = softSkills.map((skill) => {
+      if (skill.id === id) {
+        skill.name = skillName;
+      }
+      return skill;
+    });
+    setSoftSkills(updatedSkills);
+  };
+
+  const addToolSkillHandler = (toolSkill) => {
     setToolSkills((prevToolSkills) => {
-      return [...prevToolSkills, { name: skill, id: uuidv4() }];
+      return [...prevToolSkills, { name: toolSkill, id: uuidv4() }];
     });
   };
 
-  const addSoftSkillHandler = (skill) => {
+  const addSoftSkillHandler = (softSkill) => {
     setSoftSkills((prevSoftSkills) => {
-      return [...prevSoftSkills, { name: skill, id: uuidv4() }];
+      return [...prevSoftSkills, { name: softSkill, id: uuidv4() }];
     });
   };
 
+  const delToolSkillHandler = (id) => {
+    const updatedToolSkills = toolSkills.filter(
+      (toolSkill) => toolSkill.id !== id
+    );
+    setToolSkills(updatedToolSkills);
+  };
+
+  const delSoftSkillHandler = (id) => {
+    const updatedSoftSkills = softSkills.filter(
+      (softSkill) => softSkill.id !== id
+    );
+    setSoftSkills(updatedSoftSkills);
+  };
+
+  const personalInfoChangeHandler = (e) => {
+    const { name, value } = e.target;
+    setPersonalInfo((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
 
   return (
     <MainWrapper>
@@ -121,13 +144,16 @@ const Main = () => {
           aboutMe={description}
           socLinks={finalSocLinks}
           onEditSocLink={soclLinkEditHandler}
-          onDelLink={delLinkHandler}
-          onAddSocLink={AddSoc}
           toolSkills={toolSkills}
-          onEditSkill={skillEditHandler}
+          onEditToolSkill={toolSkillEditHandler}
+          onEditSoftSkill={softSkillEditHandler}
           softSkills={softSkills}
           onAddToolSkill={addToolSkillHandler}
           onAddSoftSkill={addSoftSkillHandler}
+          onDelToolSkill={delToolSkillHandler}
+          onDelSoftSkill={delSoftSkillHandler}
+          personalInfo={personalInfo}
+          personalInfoChangeHandler={personalInfoChangeHandler}
         ></EditForm>
       ) : (
         <PrevForm
@@ -136,6 +162,7 @@ const Main = () => {
           socLinks={finalSocLinks}
           toolSkills={toolSkills}
           softSkills={softSkills}
+          personalInfo={personalInfo}
         ></PrevForm>
       )}
     </MainWrapper>

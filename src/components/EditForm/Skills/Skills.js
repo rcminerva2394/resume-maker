@@ -6,25 +6,28 @@ import SkillsList from "./SkillsList";
 
 const Skills = ({
   toolSkills,
-  onEditSkill,
+  onEditToolSkill,
+  onEditSoftSkill,
   softSkills,
   onAddToolSkill,
   onAddSoftSkill,
+  onDelToolSkill,
+  onDelSoftSkill
 }) => {
   return (
-    <SectionWrapper title={"Skills"}>
+    <SectionWrapper title={"Skills"} isLast={true}>
       <AddSkill
         title={"Tools"}
-        placeholder={"Add a new tool or edit below"}
+        placeholder={"Add a new tool"}
         onSubmitSkill={onAddToolSkill}
       />
-      <SkillsList skills={toolSkills} onChange={onEditSkill} />
+      <SkillsList skills={toolSkills} onEditSkill={onEditToolSkill} onDelSkill={onDelToolSkill}/>
       <AddSkill
         title={"Soft Skills"}
-        placeholder={"Add a soft skill or edit below"}
+        placeholder={"Add a new skill"}
         onSubmitSkill={onAddSoftSkill}
       />
-      <SkillsList skills={softSkills} onChange />
+      <SkillsList skills={softSkills} onEditSkill={onEditSoftSkill} onDelSkill={onDelSoftSkill}/>
     </SectionWrapper>
   );
 };

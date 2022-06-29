@@ -5,7 +5,7 @@ import AddInput from "../../Utils/AddInput";
 const AddSkill = ({ title, placeholder, onSubmitSkill }) => {
   const [newSkill, setNewSkill] = useState("");
 
-  const onChange = (e) => {
+  const newSkillHandler = (e) => {
     setNewSkill(e.target.value);
   };
 
@@ -21,7 +21,7 @@ const AddSkill = ({ title, placeholder, onSubmitSkill }) => {
       <AddInput
         placeholder={placeholder}
         onSubmit={submitSkill}
-        onChange={onChange}
+        onChange={newSkillHandler}
       />
     </div>
   );

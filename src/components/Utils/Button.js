@@ -63,7 +63,7 @@ const ButtonWrapper = styled.button`
         ? ({ theme }) => theme.colors.darkGreen
         : props.tertiary
         ? ({ theme }) => theme.colors.blue
-        : "none"};
+        : "red"};
   :hover {
     background-color: ${(props) =>
       props.primary
@@ -72,7 +72,7 @@ const ButtonWrapper = styled.button`
         ? "#d5e3cc"
         : props.tertiary
         ? ({ theme }) => theme.colors.blue
-        : "transparent"};
+        : "#ff9999"};
   }
 `;
 export default Button;

@@ -1,30 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 
 import SectionWrapper from "../../Utils/SectionWrapper";
 import WebSocItem from "./WebSocItem";
-import AddInput from "../../Utils/AddInput";
 
-
-const WebSocList = ({ socLinks, onEditSocLink, onDelLink, onAddSocLink }) => {
-  const [addedSoc, setAddedSoc] = useState("");
-
-  const onAddSoc = (e) => {
-    setAddedSoc(e.target.value.toLowerCase());
-    console.log(e.target.value);
-  };
-
-  const addNewSoc = (e) => {
-    e.preventDefault();
-    onAddSocLink(addedSoc);
-  };
-
+const WebSocList = ({ socLinks, onEditSocLink }) => {
   return (
     <SectionWrapper title="Website & Social Links">
-      <AddInput
-        onChange={onAddSoc}
-        onSubmit={addNewSoc}
-        placeholder={"twitter, linkedin, website, github"}
-      />
       <ul>
         {socLinks.map((soc) => (
           <WebSocItem
@@ -33,7 +14,6 @@ const WebSocList = ({ socLinks, onEditSocLink, onDelLink, onAddSocLink }) => {
             link={soc.link}
             name={soc.name}
             onEditSocLink={onEditSocLink}
-            onDelLink={onDelLink}
           ></WebSocItem>
         ))}
       </ul>

@@ -14,7 +14,7 @@ body {
     margin: 0;
     font-family: 'Nunito Sans', sans-serif;
     text-rendering: optimizeLegibility !important;
-    font-size: 14rem;
+    font-size: 13rem;
     min-height: 100%;
     background-color: ${({ theme }) => theme.colors.mainBackground};
     line-height: 1.4;
@@ -63,7 +63,7 @@ h2 {
     font-family: 'Bebas Neue', cursive;
     color: ${({ theme }) => theme.colors.darkGray};
     margin-bottom: -1.25rem;
-    font-size: 24rem;
+    font-size: 26rem;
 
 }
 
@@ -78,18 +78,17 @@ header {
 
 img {
     object-fit: cover;
-    width: 42mm;
-    height: 42mm;
+    width: 50mm;
+    height: 50mm;
     border: 1px solid ${({ theme }) => theme.colors.lightGray};
     border-radius: 50%;
     position: relative;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-55%);
 }
 
 textarea {
     font-family: inherit;
-    ${'' /* font-size: 13rem; */}
     line-height: 1.4;
     font-weight: light;
 }

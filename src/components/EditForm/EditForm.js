@@ -6,6 +6,8 @@ import UploadFile from "./UploadFile";
 import AboutMe from "./AboutMe";
 import WebSocList from "./WebSocLinks/WebSocList";
 import Skills from "./Skills/Skills";
+import MainContent from "../Utils/MainContent";
+import PersonalInfo from "./PersonalInfo/PersonalInfo";
 
 const EditForm = ({
   onChange,
@@ -14,13 +16,16 @@ const EditForm = ({
   aboutMe,
   socLinks,
   onEditSocLink,
-  onDelLink,
-  onAddSocLink,
   toolSkills,
-  onEditSkill,
+  onEditToolSkill,
+  onEditSoftSkill,
   softSkills,
   onAddToolSkill,
   onAddSoftSkill,
+  onDelToolSkill,
+  onDelSoftSkill,
+  personalInfo,
+  personalInfoChangeHandler
 }) => {
   return (
     <BondPaper>
@@ -30,17 +35,21 @@ const EditForm = ({
         <WebSocList
           socLinks={socLinks}
           onEditSocLink={onEditSocLink}
-          onDelLink={onDelLink}
-          onAddSocLink={onAddSocLink}
         ></WebSocList>
         <Skills
           toolSkills={toolSkills}
-          onEditSkill={onEditSkill}
+          onEditToolSkill={onEditToolSkill}
+          onEditSoftSkill={onEditSoftSkill}
           softSkills={softSkills}
           onAddToolSkill={onAddToolSkill}
           onAddSoftSkill={onAddSoftSkill}
+          onDelToolSkill={onDelToolSkill}
+          onDelSoftSkill={onDelSoftSkill}
         ></Skills>
       </SideBar>
+      <MainContent>
+        <PersonalInfo personalInfo={personalInfo} personalInfoChangeHandler={personalInfoChangeHandler}/>
+      </MainContent>
     </BondPaper>
   );
 };

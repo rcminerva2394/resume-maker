@@ -3,9 +3,12 @@ import React from "react";
 import BondPaper from "../Utils/BondPaper";
 import SideBar from "../Utils/SideBar";
 import SectionWrapper from "../Utils/SectionWrapper";
-import { Icon } from "../Utils/Icon";
+import Skills from "./Skills";
+import WebSocItem from "./WebSocItem";
+import MainContent from "../Utils/MainContent";
+import PersonalInfo from "./PersonalInfo";
 
-const PrevForm = ({ photo, aboutMe, socLinks, toolSkills, softSkills }) => {
+const PrevForm = ({ photo, aboutMe, socLinks, toolSkills, softSkills, personalInfo }) => {
   return (
     <BondPaper>
       <SideBar>
@@ -19,23 +22,18 @@ const PrevForm = ({ photo, aboutMe, socLinks, toolSkills, softSkills }) => {
         <SectionWrapper title="Website & Social Links">
           <ul>
             {socLinks.map((socLink) => (
-              <li key={socLink.id}>
-                <Icon name={socLink.name} color={"#645D5D"} />
-                <a
-                  href={socLink.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {socLink.link}
-                </a>
-              </li>
+              <WebSocItem link={socLink.link} id={socLink.id} name={socLink.name} />
             ))}
           </ul>
         </SectionWrapper>
-        <SectionWrapper title="Skills">
-          ul
+        <SectionWrapper title="Skills" isLast={true}>
+          <Skills skills={toolSkills} title={"Tools"}></Skills>
+          <Skills skills={softSkills} title={"Soft Skills"}></Skills>
         </SectionWrapper>
       </SideBar>
+      <MainContent>
+        <PersonalInfo personalInfo={personalInfo}/>
+      </MainContent>
     </BondPaper>
   );
 };

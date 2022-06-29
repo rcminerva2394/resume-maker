@@ -7,7 +7,11 @@ import {
   FaGlobe,
   FaTwitter,
   FaPlus,
-  FaTrashAlt,
+  FaFacebook,
+  FaYoutube,
+  FaEnvelope,
+  FaMobileAlt,
+  FaMapMarkerAlt,
 } from "react-icons/fa";
 
 const icons = {
@@ -16,8 +20,12 @@ const icons = {
   linkedin: FaLinkedinIn,
   website: FaGlobe,
   twitter: FaTwitter,
+  facebook: FaFacebook,
+  youtube: FaYoutube,
   plus: FaPlus,
-  delete: FaTrashAlt,
+  email: FaEnvelope,
+  phone: FaMobileAlt,
+  address: FaMapMarkerAlt
 };
 
 export const Icon = ({ name, onClick }) => {
