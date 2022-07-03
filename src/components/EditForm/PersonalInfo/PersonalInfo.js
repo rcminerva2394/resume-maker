@@ -1,56 +1,68 @@
 import React from "react";
 
-const PersonalInfo = ({ personalInfo, personalInfoChangeHandler }) => {
+import styled from "styled-components";
+
+const PersonalInfo = ({ personalInfo, onChangePersonalInfo }) => {
   return (
-    <section>
-      <div>
-        <input
-          type="text"
-          placeholder="First name"
-          name="firstname"
-          value={personalInfo.firstname}
-          onChange={(e) => personalInfoChangeHandler(e)}
-        ></input>
-         <input
-          type="text"
-          placeholder="last name"
-          name="lastname"
-          value={personalInfo.lastname}
-          onChange={(e) => personalInfoChangeHandler(e)}
-        ></input>
-        <input
-          type="text"
-          placeholder="Job Role"
-          name="job"
-          value={personalInfo.job}
-          onChange={(e) => personalInfoChangeHandler(e)}
-        ></input>
-      </div>
-      <div>
-        <input
-          type="text"
-          placeholder="Email"
-          name="email"
-          value={personalInfo.email}
-          onChange={(e) => personalInfoChangeHandler(e)}
-        ></input>
-        <input
-          type="text"
-          placeholder="Contact Number"
-          name="number"
-          value={personalInfo.number}
-          onChange={(e) => personalInfoChangeHandler(e)}
-        ></input>
-        <input
-          type="text"
-          placeholder="Address"
-          name="address"
-          value={personalInfo.address}
-          onChange={(e) => personalInfoChangeHandler(e)}
-        ></input>
-      </div>
-    </section>
+    <PersonalInfoWrapper>
+      <Input
+        type="text"
+        placeholder="First name"
+        name="firstname"
+        value={personalInfo.firstname}
+        onChange={(e) => onChangePersonalInfo(e)}
+      ></Input>
+      <Input
+        type="text"
+        placeholder="Last name"
+        name="lastname"
+        value={personalInfo.lastname}
+        onChange={(e) => onChangePersonalInfo(e)}
+      ></Input>
+      <Input
+        type="text"
+        placeholder="Job Role"
+        name="job"
+        value={personalInfo.job}
+        onChange={(e) => onChangePersonalInfo(e)}
+      ></Input>
+      <Input
+        type="text"
+        placeholder="Email"
+        name="email"
+        value={personalInfo.email}
+        onChange={(e) => onChangePersonalInfo(e)}
+      ></Input>
+      <Input
+        type="text"
+        placeholder="Contact Number"
+        name="number"
+        value={personalInfo.number}
+        onChange={(e) => onChangePersonalInfo(e)}
+      ></Input>
+      <Input
+        type="text"
+        placeholder="Address"
+        name="address"
+        value={personalInfo.address}
+        onChange={(e) => onChangePersonalInfo(e)}
+      ></Input>
+    </PersonalInfoWrapper>
   );
 };
+
+const PersonalInfoWrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid #F2F2F2;
+  padding-bottom: 10rem;
+`;
+
+const Input = styled.input`
+  margin-left: 5rem;
+  height: 25rem;
+  width: 100%;
+  margin-bottom: 5rem;
+`;
 
 export default PersonalInfo;

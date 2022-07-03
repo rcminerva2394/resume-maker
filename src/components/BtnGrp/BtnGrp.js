@@ -4,7 +4,7 @@ import Button from "../Utils/Button";
 import styled from "styled-components";
 import { Icon } from "../Utils/Icon";
 
-const BtnGrp = ({ onEditPrev, onDownload, editState, }) => {
+const BtnGrp = ({ onEditPrev, onPrint, editState, }) => {
   return (
     <BtnGrpWrapper>
       <Button
@@ -26,7 +26,7 @@ const BtnGrp = ({ onEditPrev, onDownload, editState, }) => {
         </Button>
       )}
       {!editState && (
-        <Button tertiary onClick>
+        <Button tertiary onClick={onPrint}>
           PDF <Icon name="download" />
         </Button>
       )}

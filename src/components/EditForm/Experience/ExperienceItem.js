@@ -1,0 +1,57 @@
+import React from "react";
+
+import Button from "../../Utils/Button";
+import styled from "styled-components";
+
+const ExperienceItem = ({ id, experienceItem, onChange, onDelete }) => {
+  return (
+    <ExperienceItemWrapper>
+      <input
+        type="text"
+        name="position"
+        placeholder="Job Role"
+        onChange={(e) => onChange(e, id)}
+        value={experienceItem.position}
+      ></input>
+      <input
+        type="text"
+        name="company"
+        placeholder="Company"
+        onChange={(e) => onChange(e, id)}
+        value={experienceItem.company}
+      ></input>
+      <input
+        type="text"
+        name="from"
+        placeholder="From"
+        onChange={(e) => onChange(e, id)}
+        value={experienceItem.from}
+      ></input>
+      <input
+        type="text"
+        name="to"
+        placeholder="To"
+        onChange={(e) => onChange(e, id)}
+        value={experienceItem.to}
+      ></input>
+      <textarea
+        name="description"
+        placeholder="Description in 200 characters"
+        onChange={(e) => onChange(e, id)}
+        value={experienceItem.description}
+        rows="3"
+        maxLength={"200"}
+      ></textarea>
+      <Button onClick={() => onDelete(id)} padding={"auto"}>
+        Delete
+      </Button>
+    </ExperienceItemWrapper>
+  );
+};
+
+const ExperienceItemWrapper = styled.div`
+  margin-bottom: 15rem;
+  display: flex;
+  flex-direction: column;
+`;
+export default ExperienceItem;

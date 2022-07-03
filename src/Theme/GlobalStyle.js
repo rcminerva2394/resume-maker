@@ -18,7 +18,6 @@ body {
     min-height: 100%;
     background-color: ${({ theme }) => theme.colors.mainBackground};
     line-height: 1.4;
-    font-weight: 200;
 }
 
 ul {
@@ -35,7 +34,7 @@ li {
 
 a {
     text-decoration: none;
-    color: black;
+    color: ${({theme}) => theme.colors.text};
     text-align: start;
     font-weight: light;
 }
@@ -67,6 +66,10 @@ h2 {
 
 }
 
+h3 {
+    color: ${({ theme }) => theme.colors.darkGray};
+}
+
 header {
     position: relative;
     background-color: ${({ theme }) => theme.colors.headerBackground};
@@ -94,7 +97,7 @@ textarea {
 }
 
 p {
-    font-weight: 200;
+    color: ${({theme}) => theme.colors.text}
 }
 
 input {

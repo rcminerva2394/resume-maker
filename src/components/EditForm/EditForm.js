@@ -8,6 +8,8 @@ import WebSocList from "./WebSocLinks/WebSocList";
 import Skills from "./Skills/Skills";
 import MainContent from "../Utils/MainContent";
 import PersonalInfo from "./PersonalInfo/PersonalInfo";
+import Experience from "./Experience/Experience";
+import Education from "./Education/Education";
 
 const EditForm = ({
   onChange,
@@ -25,10 +27,18 @@ const EditForm = ({
   onDelToolSkill,
   onDelSoftSkill,
   personalInfo,
-  personalInfoChangeHandler
+  onChangePersonalInfo,
+  experience,
+  onChangeExperience,
+  onDeleteExperience,
+  onAddExperience,
+  education,
+  onChangeEducation,
+  onDeleteEducation,
+  onAddEducation,
 }) => {
   return (
-    <BondPaper>
+    <BondPaper isEditForm={true}>
       <SideBar>
         <UploadFile onChange={onChange} photo={photo}></UploadFile>
         <AboutMe onAboutMe={onAboutMe} aboutMe={aboutMe}></AboutMe>
@@ -48,7 +58,22 @@ const EditForm = ({
         ></Skills>
       </SideBar>
       <MainContent>
-        <PersonalInfo personalInfo={personalInfo} personalInfoChangeHandler={personalInfoChangeHandler}/>
+        <PersonalInfo
+          personalInfo={personalInfo}
+          onChangePersonalInfo={onChangePersonalInfo}
+        />
+        <Experience
+          experience={experience}
+          onChangeExperience={onChangeExperience}
+          onDeleteExperience={onDeleteExperience}
+          onAddExperience={onAddExperience}
+        ></Experience>
+        <Education
+          education={education}
+          onChangeEducation={onChangeEducation}
+          onDeleteEducation={onDeleteEducation}
+          onAddEducation={onAddEducation}
+        ></Education>
       </MainContent>
     </BondPaper>
   );

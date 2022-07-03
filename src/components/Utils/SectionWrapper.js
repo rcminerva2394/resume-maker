@@ -2,9 +2,9 @@ import React from "react";
 
 import styled from "styled-components";
 
-const SectionWrapper = ({ title, children, isLast }) => {
+const SectionWrapper = ({ title, children, isLast, isMain }) => {
   return (
-    <SectWrapper isLast={isLast}>
+    <SectWrapper isLast={isLast} isMain={isMain}>
       <h2>{title}</h2>
       {children}
     </SectWrapper>
@@ -13,7 +13,7 @@ const SectionWrapper = ({ title, children, isLast }) => {
 
 const SectWrapper = styled.section`
   display: grid;
-  margin: 5rem 25rem 0rem 5rem;
+  margin: ${(props) => props.isMain ? "5rem 0rem 0rem 5rem" : "5rem 25rem 0rem 5rem"};
   padding-bottom: 10rem;
   border-bottom: ${(props) =>
     props.isLast

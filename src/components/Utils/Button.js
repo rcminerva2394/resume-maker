@@ -36,6 +36,7 @@ const ButtonWrapper = styled.button`
   padding: ${(props) => (props.padding ? props.padding : `8rem 16rem`)};
   font-size: ${(props) => (props.fontSize ? props.fontSize : "inherit")};
   margin-left: ${(props) => props.margin ? props.margin : 0};
+  margin-bottom: ${(props) => props.margin ? props.margin : "auto"};
   font-weight: 600;
   border-radius: 4rem;
   letter-spacing: 1rem;

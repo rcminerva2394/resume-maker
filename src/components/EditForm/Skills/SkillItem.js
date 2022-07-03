@@ -5,7 +5,7 @@ import Button from "../../Utils/Button";
 
 const SkillItem = ({ id, skill, onEditSkill, onDelSkill }) => {
   const [isSkillEditing, setIsSkillEditing] = useState(false);
-  const [editedSkill, setIsEditedSkill] = useState("");
+  const [editedSkill, setIsEditedSkill] = useState(skill);
 
   const editSkillHandler = () => {
     setIsSkillEditing(true);

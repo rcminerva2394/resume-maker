@@ -25,7 +25,7 @@ const Label = styled.label`
   border: 1px solid ${({ theme }) => theme.colors.lightGray};
   border-radius: 50%;
   position: relative;
-  left: 50%;
+  left: 45%;
   transform: translateX(-50%);
   background-image: url(${image});
   background-repeat: no-repeat;

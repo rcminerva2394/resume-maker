@@ -7,7 +7,7 @@ const PersonalInfo = ({ personalInfo }) => {
   return (
     <PersonalInfoWrapper>
       <Wrapper>
-        <FullName>{personalInfo.firstname}</FullName> 
+        <FullName>{personalInfo.firstname}</FullName>
         <FullName>{personalInfo.lastname}</FullName>
         <Job>{personalInfo.job}</Job>
       </Wrapper>
@@ -38,34 +38,33 @@ const FullName = styled.p`
 `;
 
 const Job = styled.p`
-font-size: 16rem;
-font-weight: light;
-line-height: 0;
-color: ${({theme}) => theme.colors.darkGray}`
-
+  font-size: 16rem;
+  font-weight: light;
+  line-height: 0;
+  color: ${({ theme }) => theme.colors.darkGray};
+`;
 
 const Contact = styled.div`
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: flex-start;
-gap: 10rem;
-font-size: 15rem;
-`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10rem;
+  font-size: 14rem;
+  color: ${({ theme }) => theme.colors.darkGray};
+  margin-bottom: -1rem;
+`;
 
-const PersonalInfoWrapper = styled.div`
-display: flex;
-flex-wrap: wrap;
-justify-content: space-between;
-border-bottom: ${(props) =>
-    props.isLast
-      ? "none"
-      : "2px solid #F2F2F2" };
-`
+const PersonalInfoWrapper = styled.section`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-bottom: 2px solid #f2f2f2;
+`;
 
 const Wrapper = styled.div`
-display: flex;
-flex-wrap: wrap;
-width: 50%;
-`
+  display: block;
+  width: 50%;
+  margin-bottom: 10rem;
+`;
+
 export default PersonalInfo;
