@@ -33,26 +33,19 @@ const PrevForm = React.forwardRef(
       <EducationItem key={educationItem.id} educationItem={educationItem} />
     ));
 
+    const socLinkItems = socLinks.map((socLink) => (
+      <WebSocItem link={socLink.link} key={socLink.id} name={socLink.name} />
+    ));
+
     return (
       <BondPaper ref={ref}>
         <SideBar>
-          <img
-            alt="profile-pic"
-            src={photo ? URL.createObjectURL(photo) : null}
-          ></img>
+          <img alt="profile-pic" src={photo ? photo : null}></img>
           <SectionWrapper title="About Me">
             <p>{aboutMe}</p>
           </SectionWrapper>
           <SectionWrapper title="Website & Social Links">
-            <ul>
-              {socLinks.map((socLink) => (
-                <WebSocItem
-                  link={socLink.link}
-                  key={socLink.id}
-                  name={socLink.name}
-                />
-              ))}
-            </ul>
+            <ul>{socLinkItems}</ul>
           </SectionWrapper>
           <SectionWrapper title="Skills" isLast={true}>
             <Skills skills={toolSkills} title={"Tools"}></Skills>

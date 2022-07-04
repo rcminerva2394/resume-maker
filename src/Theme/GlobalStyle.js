@@ -13,7 +13,7 @@ html {
 body {
     margin: 0;
     font-family: 'Nunito Sans', sans-serif;
-    text-rendering: optimizeLegibility !important;
+    text-rendering: geometricPrecision !important;
     font-size: 13rem;
     min-height: 100%;
     background-color: ${({ theme }) => theme.colors.mainBackground};
@@ -34,7 +34,7 @@ li {
 
 a {
     text-decoration: none;
-    color: ${({theme}) => theme.colors.text};
+    color: ${({ theme }) => theme.colors.text};
     text-align: start;
     font-weight: light;
 }
@@ -81,13 +81,13 @@ header {
 
 img {
     object-fit: cover;
-    width: 50mm;
-    height: 50mm;
+    width: 42mm;
+    height: 42mm;
     border: 1px solid ${({ theme }) => theme.colors.lightGray};
     border-radius: 50%;
     position: relative;
-    left: 50%;
-    transform: translateX(-55%);
+    left: 45%;
+    transform: translateX(-50%);
 }
 
 textarea {
@@ -97,7 +97,7 @@ textarea {
 }
 
 p {
-    color: ${({theme}) => theme.colors.text}
+    color: ${({ theme }) => theme.colors.text}
 }
 
 input {

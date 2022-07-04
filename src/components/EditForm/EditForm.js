@@ -12,7 +12,7 @@ import Experience from "./Experience/Experience";
 import Education from "./Education/Education";
 
 const EditForm = ({
-  onChange,
+  onUploadPhoto,
   photo,
   onAboutMe,
   aboutMe,
@@ -40,7 +40,7 @@ const EditForm = ({
   return (
     <BondPaper isEditForm={true}>
       <SideBar>
-        <UploadFile onChange={onChange} photo={photo}></UploadFile>
+        <UploadFile onUploadPhoto={onUploadPhoto} photo={photo}></UploadFile>
         <AboutMe onAboutMe={onAboutMe} aboutMe={aboutMe}></AboutMe>
         <WebSocList
           socLinks={socLinks}

@@ -23,7 +23,7 @@ const SkillItem = ({ id, skill, onEditSkill, onDelSkill }) => {
 
   const deleteSkillHandler = () => {
     onDelSkill(id);
-  }
+  };
 
   return (
     <>
@@ -86,5 +86,6 @@ const SkillInput = styled.input`
 `;
 
 const FormDeleteWrapper = styled.div`
-display: flex;
-justify-content: flex-start; `
+  display: flex;
+  justify-content: flex-start;
+`;

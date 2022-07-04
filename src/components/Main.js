@@ -78,9 +78,8 @@ const Main = () => {
     setIsEditing(e);
   };
 
-  const onUploadPhoto = (e) => {
-    console.log(e.target.files[0]);
-    setPhotoUploaded(e.target.files[0]);
+  const uploadPhotoHandler = (e) => {
+    setPhotoUploaded(URL.createObjectURL(e.target.files[0]));
   };
 
   const aboutMeHandler = (value) => {
@@ -235,7 +234,7 @@ const Main = () => {
       ></BtnGrp>
       {isEditing ? (
         <EditForm
-          onChange={onUploadPhoto}
+          onUploadPhoto={uploadPhotoHandler}
           photo={photoUploaded}
           onAboutMe={aboutMeHandler}
           aboutMe={description}
