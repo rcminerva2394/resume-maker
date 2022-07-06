@@ -1,14 +1,18 @@
 import React from "react";
 
 import styled from "styled-components";
-
 import SkillItem from "./SkillItem";
 
-const SkillsList = ({ skills, onEditSkill, onDelSkill}) => {
+const SkillsList = ({ type, skills }) => {
   return (
     <SkillsListWrapper>
       {skills.map((skill) => (
-        <SkillItem key={skill.id} id={skill.id} onEditSkill={onEditSkill} skill={skill.name} onDelSkill={onDelSkill}/>
+        <SkillItem
+          type={type}
+          key={skill.id}
+          id={skill.id}
+          skill={skill.name}
+        />
       ))}
     </SkillsListWrapper>
   );

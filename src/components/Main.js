@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, createContext, useMemo} from "react";
 
 import styled from "styled-components";
 import BtnGrp from "./BtnGrp/BtnGrp";
@@ -19,19 +19,20 @@ const INITIALSOCLINKS = [
   { name: "youtube", link: "", id: uuidv4() },
 ];
 
-const TOOLSKILLS = [
-  { name: "CLICK ME TO EDIT", id: uuidv4() },
-  { name: "HTML", id: uuidv4() },
-  { name: "CSS", id: uuidv4() },
-  { name: "JavaScript", id: uuidv4() },
-];
-
-const SOFTSKILLS = [
-  { name: "CLICK ME TO EDIT", id: uuidv4() },
-  { name: "Adaptability", id: uuidv4() },
-  { name: "Time Mgmt", id: uuidv4() },
-  { name: "Communication", id: uuidv4() },
-];
+const SKILLS = {
+  tools: [
+    { name: "CLICK ME TO EDIT", id: uuidv4() },
+    { name: "HTML", id: uuidv4() },
+    { name: "CSS", id: uuidv4() },
+    { name: "JavaScript", id: uuidv4() },
+  ],
+  soft: [
+    { name: "CLICK ME TO EDIT", id: uuidv4() },
+    { name: "Adaptability", id: uuidv4() },
+    { name: "Time Mgmt", id: uuidv4() },
+    { name: "Communication", id: uuidv4() },
+  ],
+};
 
 const PERSONALINFO = {
   firstname: "SAMPLE",
@@ -63,13 +64,24 @@ const EDUCATION = [
   },
 ];
 
+/* Trying useContext for Skills Component*/
+export const SkillsContext = createContext({
+  skills: {},
+  setSkills: () => {},
+});
+
+
 const Main = () => {
   const [isEditing, setIsEditing] = useState(true);
   const [photoUploaded, setPhotoUploaded] = useState(null);
   const [description, setDescription] = useState(PLACEHOLDER);
   const [finalSocLinks, setFinalSocLinks] = useState(INITIALSOCLINKS);
-  const [toolSkills, setToolSkills] = useState(TOOLSKILLS);
-  const [softSkills, setSoftSkills] = useState(SOFTSKILLS);
+  const [skills, setSkills] = useState(SKILLS);
+
+  /* SkillsContext value, as per sources value must be memoized in order to avoid re-render of consumer contexts 
+  whenever parent component renders */
+  const value = useMemo( () => ({ skills, setSkills }), [skills]);
+
   const [personalInfo, setPersonalInfo] = useState(PERSONALINFO);
   const [experience, setExperience] = useState(EXPERIENCE);
   const [education, setEducation] = useState(EDUCATION);
@@ -96,51 +108,6 @@ const Main = () => {
     setFinalSocLinks(updatedSocLinks);
   };
 
-  const toolSkillEditHandler = (skillName, id) => {
-    const updatedSkills = toolSkills.map((skill) => {
-      if (skill.id === id) {
-        skill.name = skillName;
-      }
-      return skill;
-    });
-    setToolSkills(updatedSkills);
-  };
-
-  const softSkillEditHandler = (skillName, id) => {
-    const updatedSkills = softSkills.map((skill) => {
-      if (skill.id === id) {
-        skill.name = skillName;
-      }
-      return skill;
-    });
-    setSoftSkills(updatedSkills);
-  };
-
-  const addToolSkillHandler = (toolSkill) => {
-    setToolSkills((prevToolSkills) => {
-      return [...prevToolSkills, { name: toolSkill, id: uuidv4() }];
-    });
-  };
-
-  const addSoftSkillHandler = (softSkill) => {
-    setSoftSkills((prevSoftSkills) => {
-      return [...prevSoftSkills, { name: softSkill, id: uuidv4() }];
-    });
-  };
-
-  const delToolSkillHandler = (id) => {
-    const updatedToolSkills = toolSkills.filter(
-      (toolSkill) => toolSkill.id !== id
-    );
-    setToolSkills(updatedToolSkills);
-  };
-
-  const delSoftSkillHandler = (id) => {
-    const updatedSoftSkills = softSkills.filter(
-      (softSkill) => softSkill.id !== id
-    );
-    setSoftSkills(updatedSoftSkills);
-  };
 
   const personalInfoChangeHandler = (e) => {
     const { name, value } = e.target;
@@ -224,55 +191,49 @@ const Main = () => {
   });
 
   return (
-    <MainWrapper>
-      <BtnGrp
-        onEditPrev={editPrev}
-        onDownLoad
-        editState={isEditing}
-        role="button"
-        onPrint={handlePrint}
-      ></BtnGrp>
-      {isEditing ? (
-        <EditForm
-          onUploadPhoto={uploadPhotoHandler}
-          photo={photoUploaded}
-          onAboutMe={aboutMeHandler}
-          aboutMe={description}
-          socLinks={finalSocLinks}
-          onEditSocLink={soclLinkEditHandler}
-          toolSkills={toolSkills}
-          onEditToolSkill={toolSkillEditHandler}
-          onEditSoftSkill={softSkillEditHandler}
-          softSkills={softSkills}
-          onAddToolSkill={addToolSkillHandler}
-          onAddSoftSkill={addSoftSkillHandler}
-          onDelToolSkill={delToolSkillHandler}
-          onDelSoftSkill={delSoftSkillHandler}
-          personalInfo={personalInfo}
-          onChangePersonalInfo={personalInfoChangeHandler}
-          experience={experience}
-          onChangeExperience={experienceChangeHandlder}
-          onDeleteExperience={deleteExperienceItem}
-          onAddExperience={addExperienceItem}
-          education={education}
-          onChangeEducation={educationChangeHandlder}
-          onDeleteEducation={deleteEducationItem}
-          onAddEducation={addEducationItem}
-        ></EditForm>
-      ) : (
-        <PrevForm
-          ref={componentRef}
-          photo={photoUploaded}
-          aboutMe={description}
-          socLinks={finalSocLinks}
-          toolSkills={toolSkills}
-          softSkills={softSkills}
-          personalInfo={personalInfo}
-          experience={experience}
-          education={education}
-        ></PrevForm>
-      )}
-    </MainWrapper>
+    <SkillsContext.Provider value={value}>
+      <MainWrapper>
+        <BtnGrp
+          onEditPrev={editPrev}
+          onDownLoad
+          editState={isEditing}
+          role="button"
+          onPrint={handlePrint}
+        ></BtnGrp>
+        {isEditing ? (
+          <EditForm
+            onUploadPhoto={uploadPhotoHandler}
+            photo={photoUploaded}
+            onAboutMe={aboutMeHandler}
+            aboutMe={description}
+            socLinks={finalSocLinks}
+            onEditSocLink={soclLinkEditHandler}
+            skills={skills}
+            personalInfo={personalInfo}
+            onChangePersonalInfo={personalInfoChangeHandler}
+            experience={experience}
+            onChangeExperience={experienceChangeHandlder}
+            onDeleteExperience={deleteExperienceItem}
+            onAddExperience={addExperienceItem}
+            education={education}
+            onChangeEducation={educationChangeHandlder}
+            onDeleteEducation={deleteEducationItem}
+            onAddEducation={addEducationItem}
+          ></EditForm>
+        ) : (
+          <PrevForm
+            ref={componentRef}
+            photo={photoUploaded}
+            aboutMe={description}
+            socLinks={finalSocLinks}
+            skills={skills}
+            personalInfo={personalInfo}
+            experience={experience}
+            education={education}
+          ></PrevForm>
+        )}
+      </MainWrapper>
+    </SkillsContext.Provider>
   );
 };
 

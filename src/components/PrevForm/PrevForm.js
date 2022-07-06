@@ -17,8 +17,7 @@ const PrevForm = React.forwardRef(
       photo,
       aboutMe,
       socLinks,
-      toolSkills,
-      softSkills,
+      skills,
       personalInfo,
       experience,
       education,
@@ -48,8 +47,8 @@ const PrevForm = React.forwardRef(
             <ul>{socLinkItems}</ul>
           </SectionWrapper>
           <SectionWrapper title="Skills" isLast={true}>
-            <Skills skills={toolSkills} title={"Tools"}></Skills>
-            <Skills skills={softSkills} title={"Soft Skills"}></Skills>
+            <Skills skills={skills.tools} title={"Tools"}></Skills>
+            <Skills skills={skills.soft} title={"Soft Skills"}></Skills>
           </SectionWrapper>
         </SideBar>
         <MainContent>

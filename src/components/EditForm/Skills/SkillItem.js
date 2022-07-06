@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import styled, { css } from "styled-components";
 import Button from "../../Utils/Button";
+import { SkillsContext } from "../../Main";
 
-const SkillItem = ({ id, skill, onEditSkill, onDelSkill }) => {
+const SkillItem = ({ type, id, skill }) => {
   const [isSkillEditing, setIsSkillEditing] = useState(false);
   const [editedSkill, setIsEditedSkill] = useState(skill);
+  const { skills, setSkills } = useContext(SkillsContext);
 
   const editSkillHandler = () => {
     setIsSkillEditing(true);
@@ -15,21 +17,39 @@ const SkillItem = ({ id, skill, onEditSkill, onDelSkill }) => {
     setIsEditedSkill(e.target.value);
   };
 
-  const submitEditedSkillHandler = (e) => {
-    e.preventDefault();
-    onEditSkill(editedSkill, id);
-    setIsSkillEditing(false);
+  const delSkillHandler = () => {
+    const updatedSkills = skills[type].filter((skill) => skill.id !== id);
+
+    setSkills((prevSkills) => {
+      return {
+        ...prevSkills,
+        [type]: [...updatedSkills],
+      };
+    });
   };
 
-  const deleteSkillHandler = () => {
-    onDelSkill(id);
+  const skillsEditHandler = (e) => {
+    e.preventDefault();
+    const updatedSkills = skills[type].map((skill) => {
+      if (skill.id === id) {
+        skill.name = editedSkill;
+      }
+      return skill;
+    });
+    setSkills((prevSkills) => {
+      return {
+        ...prevSkills,
+        [type]: [...updatedSkills],
+      };
+    });
+    setIsSkillEditing(false);
   };
 
   return (
     <>
       {isSkillEditing ? (
         <FormDeleteWrapper>
-          <form onSubmit={submitEditedSkillHandler}>
+          <form onSubmit={skillsEditHandler}>
             <label>
               <SkillInput
                 type="text"
@@ -52,7 +72,7 @@ const SkillItem = ({ id, skill, onEditSkill, onDelSkill }) => {
             height={"28px"}
             padding={"auto"}
             fontSize={"12rem"}
-            onClick={deleteSkillHandler}
+            onClick={delSkillHandler}
           >
             Del
           </Button>

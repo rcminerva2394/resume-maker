@@ -18,14 +18,10 @@ const EditForm = ({
   aboutMe,
   socLinks,
   onEditSocLink,
-  toolSkills,
-  onEditToolSkill,
-  onEditSoftSkill,
-  softSkills,
-  onAddToolSkill,
-  onAddSoftSkill,
-  onDelToolSkill,
-  onDelSoftSkill,
+  skills,
+
+  // onDelSkill,
+
   personalInfo,
   onChangePersonalInfo,
   experience,
@@ -47,14 +43,7 @@ const EditForm = ({
           onEditSocLink={onEditSocLink}
         ></WebSocList>
         <Skills
-          toolSkills={toolSkills}
-          onEditToolSkill={onEditToolSkill}
-          onEditSoftSkill={onEditSoftSkill}
-          softSkills={softSkills}
-          onAddToolSkill={onAddToolSkill}
-          onAddSoftSkill={onAddSoftSkill}
-          onDelToolSkill={onDelToolSkill}
-          onDelSoftSkill={onDelSoftSkill}
+          skills={skills}
         ></Skills>
       </SideBar>
       <MainContent>
