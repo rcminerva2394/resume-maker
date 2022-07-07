@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.js": "/resume-maker/static/js/main.20429da6.js",
+    "main.js": "/resume-maker/static/js/main.4220c3f4.js",
     "static/media/sample-photo.png": "/resume-maker/static/media/sample-photo.741bcd9789ab7c4f93c1.png",
     "index.html": "/resume-maker/index.html",
-    "main.20429da6.js.map": "/resume-maker/static/js/main.20429da6.js.map"
+    "main.4220c3f4.js.map": "/resume-maker/static/js/main.4220c3f4.js.map"
   },
   "entrypoints": [
-    "static/js/main.20429da6.js"
+    "static/js/main.4220c3f4.js"
   ]
 }
