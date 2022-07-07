@@ -12,6 +12,7 @@ import {
   FaEnvelope,
   FaMobileAlt,
   FaMapMarkerAlt,
+ 
 } from "react-icons/fa";
 
 const icons = {
@@ -25,7 +26,7 @@ const icons = {
   plus: FaPlus,
   email: FaEnvelope,
   phone: FaMobileAlt,
-  address: FaMapMarkerAlt
+  address: FaMapMarkerAlt,
 };
 
 export const Icon = ({ name, onClick }) => {

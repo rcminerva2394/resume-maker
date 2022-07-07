@@ -54,7 +54,7 @@ const PersonalInfo = ({ personalInfo, onChangePersonalInfo }) => {
 const PersonalInfoWrapper = styled.section`
   display: flex;
   flex-direction: column;
-  border-bottom: 2px solid #F2F2F2;
+  border-bottom: 2px solid #f2f2f2;
   padding-bottom: 10rem;
 `;
 

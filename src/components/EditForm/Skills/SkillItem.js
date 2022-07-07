@@ -2,12 +2,13 @@ import React, { useState, useContext } from "react";
 
 import styled, { css } from "styled-components";
 import Button from "../../Utils/Button";
-import { SkillsContext } from "../../Main";
+import { SkillsContext, ThemeColor } from "../../Main";
 
 const SkillItem = ({ type, id, skill }) => {
   const [isSkillEditing, setIsSkillEditing] = useState(false);
   const [editedSkill, setIsEditedSkill] = useState(skill);
   const { skills, setSkills } = useContext(SkillsContext);
+  const {hexTheme} = useContext(ThemeColor)
 
   const editSkillHandler = () => {
     setIsSkillEditing(true);
@@ -56,6 +57,7 @@ const SkillItem = ({ type, id, skill }) => {
                 placeholder={skill}
                 onChange={editSkillTextHandler}
                 value={editedSkill}
+                color={hexTheme}
               ></SkillInput>
             </label>
             <Button
@@ -78,7 +80,7 @@ const SkillItem = ({ type, id, skill }) => {
           </Button>
         </FormDeleteWrapper>
       ) : (
-        <SkillPiece onClick={editSkillHandler}>{skill}</SkillPiece>
+        <SkillPiece onClick={editSkillHandler} color={hexTheme}>{skill}</SkillPiece>
       )}
     </>
   );
@@ -88,7 +90,6 @@ export default SkillItem;
 
 const baseSkillStyle = css`
   border: none;
-  background-color: ${({ theme }) => theme.colors.darkGray};
   padding: 6.5rem 13rem;
   width: fit-content;
   color: white;
@@ -98,11 +99,13 @@ const baseSkillStyle = css`
 
 const SkillPiece = styled.li`
   ${baseSkillStyle}
+  background-color: ${props => props.color}
 `;
 
 const SkillInput = styled.input`
   ${baseSkillStyle}
   width: 75%;
+  background-color: ${props => props.color}
 `;
 
 const FormDeleteWrapper = styled.div`

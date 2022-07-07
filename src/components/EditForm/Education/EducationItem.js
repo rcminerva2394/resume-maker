@@ -34,9 +34,9 @@ const EducationItem = ({ id, onChange, educationItem, onDelete }) => {
         onChange={(e) => onChange(e, id)}
         value={educationItem.to}
       ></input>
-      <Button onClick={() => onDelete(id)} padding={"auto"}>
-        Delete
-      </Button>
+      <ButtonWrapper>
+        <Button onClick={() => onDelete(id)} padding={"auto"}>Del</Button>
+      </ButtonWrapper>
     </EducationItemWrapper>
   );
 };
@@ -46,4 +46,9 @@ const EducationItemWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
+const ButtonWrapper = styled.div`
+display: flex;
+justify-content: flex-end;
+`
 export default EducationItem;

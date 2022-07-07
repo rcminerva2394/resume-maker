@@ -4,7 +4,7 @@ import Button from "../Utils/Button";
 import styled from "styled-components";
 import { Icon } from "../Utils/Icon";
 
-const BtnGrp = ({ onEditPrev, onPrint, editState, }) => {
+const BtnGrp = ({ onEditPrev, onPrint, editState }) => {
   return (
     <BtnGrpWrapper>
       <Button
@@ -37,7 +37,6 @@ const BtnGrp = ({ onEditPrev, onPrint, editState, }) => {
 const BtnGrpWrapper = styled.div`
   display: flex;
   justify-content: flex-start;
-  margin: 20rem 0;
   gap: 10rem;
 `;
 

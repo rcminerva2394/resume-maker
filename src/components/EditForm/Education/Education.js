@@ -4,6 +4,7 @@ import EducationItem from "./EducationItem";
 import SectionWrapper from "../../Utils/SectionWrapper";
 import Button from "../../Utils/Button";
 import styled from "styled-components";
+import { Icon } from "../../Utils/Icon";
 
 const Education = ({
   education,
@@ -30,7 +31,7 @@ const Education = ({
           padding={"auto"}
           margin={"5rem"}
         >
-          Add Education
+          <Icon name="plus" /> Add Education
         </Button>
       </ButtonWrapper>
       {educationItems}

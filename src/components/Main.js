@@ -1,4 +1,4 @@
-import React, { useState, useRef, createContext, useMemo} from "react";
+import React, { useState, useRef, createContext, useMemo } from "react";
 
 import styled from "styled-components";
 import BtnGrp from "./BtnGrp/BtnGrp";
@@ -6,6 +6,7 @@ import EditForm from "./EditForm/EditForm";
 import PrevForm from "./PrevForm/PrevForm";
 import { v4 as uuidv4 } from "uuid";
 import { useReactToPrint } from "react-to-print";
+import ChangeTheme from "./ChangingTheme/ChangeTheme";
 
 const PLACEHOLDER =
   "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia molestiae quas vel sint commodi repudiandae consequuntur. sint commodi repudiandae consequuntur";
@@ -64,12 +65,15 @@ const EDUCATION = [
   },
 ];
 
-/* Trying useContext for Skills Component*/
 export const SkillsContext = createContext({
   skills: {},
   setSkills: () => {},
 });
 
+export const ThemeColor = createContext({
+  hexTheme: "",
+  setHexTheme: () => {},
+});
 
 const Main = () => {
   const [isEditing, setIsEditing] = useState(true);
@@ -77,14 +81,12 @@ const Main = () => {
   const [description, setDescription] = useState(PLACEHOLDER);
   const [finalSocLinks, setFinalSocLinks] = useState(INITIALSOCLINKS);
   const [skills, setSkills] = useState(SKILLS);
-
-  /* SkillsContext value, as per sources value must be memoized in order to avoid re-render of consumer contexts 
-  whenever parent component renders */
-  const value = useMemo( () => ({ skills, setSkills }), [skills]);
-
+  const value = useMemo(() => ({ skills, setSkills }), [skills]);
   const [personalInfo, setPersonalInfo] = useState(PERSONALINFO);
   const [experience, setExperience] = useState(EXPERIENCE);
   const [education, setEducation] = useState(EDUCATION);
+  const [hexTheme, setHexTheme] = useState("#645D5D");
+  const colorValue = { hexTheme, setHexTheme };
 
   const editPrev = (e) => {
     setIsEditing(e);
@@ -107,7 +109,6 @@ const Main = () => {
     });
     setFinalSocLinks(updatedSocLinks);
   };
-
 
   const personalInfoChangeHandler = (e) => {
     const { name, value } = e.target;
@@ -191,49 +192,54 @@ const Main = () => {
   });
 
   return (
-    <SkillsContext.Provider value={value}>
-      <MainWrapper>
-        <BtnGrp
-          onEditPrev={editPrev}
-          onDownLoad
-          editState={isEditing}
-          role="button"
-          onPrint={handlePrint}
-        ></BtnGrp>
-        {isEditing ? (
-          <EditForm
-            onUploadPhoto={uploadPhotoHandler}
-            photo={photoUploaded}
-            onAboutMe={aboutMeHandler}
-            aboutMe={description}
-            socLinks={finalSocLinks}
-            onEditSocLink={soclLinkEditHandler}
-            skills={skills}
-            personalInfo={personalInfo}
-            onChangePersonalInfo={personalInfoChangeHandler}
-            experience={experience}
-            onChangeExperience={experienceChangeHandlder}
-            onDeleteExperience={deleteExperienceItem}
-            onAddExperience={addExperienceItem}
-            education={education}
-            onChangeEducation={educationChangeHandlder}
-            onDeleteEducation={deleteEducationItem}
-            onAddEducation={addEducationItem}
-          ></EditForm>
-        ) : (
-          <PrevForm
-            ref={componentRef}
-            photo={photoUploaded}
-            aboutMe={description}
-            socLinks={finalSocLinks}
-            skills={skills}
-            personalInfo={personalInfo}
-            experience={experience}
-            education={education}
-          ></PrevForm>
-        )}
-      </MainWrapper>
-    </SkillsContext.Provider>
+    <ThemeColor.Provider value={colorValue}>
+      <SkillsContext.Provider value={value}>
+        <MainWrapper>
+          <BtnGrpThemeWrapper>
+            <BtnGrp
+              onEditPrev={editPrev}
+              onDownLoad
+              editState={isEditing}
+              role="button"
+              onPrint={handlePrint}
+            ></BtnGrp>
+            <ChangeTheme />
+          </BtnGrpThemeWrapper>
+          {isEditing ? (
+            <EditForm
+              onUploadPhoto={uploadPhotoHandler}
+              photo={photoUploaded}
+              onAboutMe={aboutMeHandler}
+              aboutMe={description}
+              socLinks={finalSocLinks}
+              onEditSocLink={soclLinkEditHandler}
+              skills={skills}
+              personalInfo={personalInfo}
+              onChangePersonalInfo={personalInfoChangeHandler}
+              experience={experience}
+              onChangeExperience={experienceChangeHandlder}
+              onDeleteExperience={deleteExperienceItem}
+              onAddExperience={addExperienceItem}
+              education={education}
+              onChangeEducation={educationChangeHandlder}
+              onDeleteEducation={deleteEducationItem}
+              onAddEducation={addEducationItem}
+            ></EditForm>
+          ) : (
+            <PrevForm
+              ref={componentRef}
+              photo={photoUploaded}
+              aboutMe={description}
+              socLinks={finalSocLinks}
+              skills={skills}
+              personalInfo={personalInfo}
+              experience={experience}
+              education={education}
+            ></PrevForm>
+          )}
+        </MainWrapper>
+      </SkillsContext.Provider>
+    </ThemeColor.Provider>
   );
 };
 
@@ -245,4 +251,9 @@ const MainWrapper = styled.main`
   padding-bottom: 30rem;
 `;
 
+const BtnGrpThemeWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 20rem 0;
+`;
 export default Main;

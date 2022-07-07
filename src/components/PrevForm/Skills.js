@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import styled from "styled-components";
+import { ThemeColor } from "../Main";
 
 const Skills = ({ skills, title }) => {
+  const { hexTheme } = useContext(ThemeColor);
+
   return (
     <div>
       <p>
@@ -10,7 +13,9 @@ const Skills = ({ skills, title }) => {
       </p>
       <SkillsListWrapper>
         {skills.map((skill) => (
-          <SkillItemWRapper key={skill.id}>{skill.name}</SkillItemWRapper>
+          <SkillItemWRapper key={skill.id} color={hexTheme}>
+            {skill.name}
+          </SkillItemWRapper>
         ))}
       </SkillsListWrapper>
     </div>
@@ -27,7 +32,7 @@ const SkillsListWrapper = styled.ul`
 
 const SkillItemWRapper = styled.li`
   border: none;
-  background-color: ${({ theme }) => theme.colors.darkGray};
+  background-color: ${(props) => props.color};
   padding: 6.5rem 13rem;
   width: fit-content;
   color: white;

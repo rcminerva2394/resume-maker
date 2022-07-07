@@ -60,7 +60,6 @@ h1 {
 
 h2 {
     font-family: 'Bebas Neue', cursive;
-    color: ${({ theme }) => theme.colors.darkGray};
     margin-bottom: -1.25rem;
     font-size: 26rem;
 

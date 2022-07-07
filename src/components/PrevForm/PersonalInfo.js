@@ -1,14 +1,16 @@
-import React from "react";
+import React, {useContext} from "react";
 
 import { Icon } from "../Utils/Icon";
 import styled from "styled-components";
+import { ThemeColor } from "../Main";
 
 const PersonalInfo = ({ personalInfo }) => {
+  const { hexTheme } = useContext(ThemeColor);
   return (
     <PersonalInfoWrapper>
       <Wrapper>
-        <FullName>{personalInfo.firstname}</FullName>
-        <FullName>{personalInfo.lastname}</FullName>
+        <FullName color= {hexTheme}>{personalInfo.firstname}</FullName>
+        <FullName color= {hexTheme}>{personalInfo.lastname}</FullName>
         <Job>{personalInfo.job}</Job>
       </Wrapper>
       <Wrapper>
@@ -34,7 +36,7 @@ const FullName = styled.p`
   font-family: "Bebas Neue";
   font-weight: bold;
   line-height: 0;
-  color: ${({ theme }) => theme.colors.darkGray};
+  color: ${props => props.color};
 `;
 
 const Job = styled.p`

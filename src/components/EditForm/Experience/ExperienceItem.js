@@ -42,9 +42,11 @@ const ExperienceItem = ({ id, experienceItem, onChange, onDelete }) => {
         rows="3"
         maxLength={"200"}
       ></textarea>
-      <Button onClick={() => onDelete(id)} padding={"auto"}>
-        Delete
-      </Button>
+      <ButtonWrapper>
+        <Button onClick={() => onDelete(id)} padding={"auto"}>
+          Del
+        </Button>
+      </ButtonWrapper>
     </ExperienceItemWrapper>
   );
 };
@@ -53,5 +55,10 @@ const ExperienceItemWrapper = styled.div`
   margin-bottom: 15rem;
   display: flex;
   flex-direction: column;
+`;
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
 `;
 export default ExperienceItem;

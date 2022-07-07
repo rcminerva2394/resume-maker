@@ -3,6 +3,7 @@ import React from "react";
 import SectionWrapper from "../../Utils/SectionWrapper";
 import ExperienceItem from "./ExperienceItem";
 import Button from "../../Utils/Button";
+import { Icon } from "../../Utils/Icon";
 
 import styled from "styled-components";
 
@@ -30,7 +31,7 @@ const Experience = ({
           padding={"auto"}
           margin={"5rem"}
         >
-          Add Experience
+          <Icon name="plus" /> Add Experience
         </Button>{" "}
       </ButtonWrapper>
       {experienceItems}

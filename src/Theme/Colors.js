@@ -1,5 +1,5 @@
 
-const ThemeColors = {
+const Colors = {
   colors: {
     mainBackground: "#F8F8F8",
     headerBackground: "#272933",
@@ -12,6 +12,7 @@ const ThemeColors = {
     blue: "#355DEE",
     darkBlue: "#1443eb"
   }
+
 };
 
-export default ThemeColors;
+export default Colors;
