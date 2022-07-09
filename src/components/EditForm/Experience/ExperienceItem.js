@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
+import styled from 'styled-components';
 
-import Button from "../../Utils/Button";
-import styled from "styled-components";
+import Button from '../../Utils/Button';
 
 const ExperienceItem = ({ id, experienceItem, onChange, onDelete }) => {
   return (
@@ -40,10 +40,10 @@ const ExperienceItem = ({ id, experienceItem, onChange, onDelete }) => {
         onChange={(e) => onChange(e, id)}
         value={experienceItem.description}
         rows="3"
-        maxLength={"200"}
+        maxLength={'200'}
       ></textarea>
       <ButtonWrapper>
-        <Button onClick={() => onDelete(id)} padding={"auto"}>
+        <Button onClick={() => onDelete(id)} padding={'auto'}>
           Del
         </Button>
       </ButtonWrapper>

@@ -1,8 +1,8 @@
 import React from 'react';
-
 import ReactDOM from 'react-dom/client';
-import App from './App';
 import { ThemeProvider } from 'styled-components';
+
+import App from './App';
 // You used theme folder here instead of Theme
 import GlobalStyle from './Theme/GlobalStyle';
 import Colors from './Theme/Colors';

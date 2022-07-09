@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext } from 'react';
+import styled from 'styled-components';
 
-import styled from "styled-components";
-import { ThemeColor } from "../Main";
+import { ThemeColor } from '../Main';
 
 const Skills = ({ skills, title }) => {
   const { hexTheme } = useContext(ThemeColor);

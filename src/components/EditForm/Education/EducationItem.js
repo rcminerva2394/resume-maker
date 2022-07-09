@@ -1,8 +1,9 @@
-import React from "react";
+import React from 'react';
+import styled from 'styled-components';
 
-import Button from "../../Utils/Button";
-import styled from "styled-components";
+import Button from '../../Utils/Button';
 
+// TODO REFACTOR here
 const EducationItem = ({ id, onChange, educationItem, onDelete }) => {
   return (
     <EducationItemWrapper>
@@ -35,7 +36,9 @@ const EducationItem = ({ id, onChange, educationItem, onDelete }) => {
         value={educationItem.to}
       ></input>
       <ButtonWrapper>
-        <Button onClick={() => onDelete(id)} padding={"auto"}>Del</Button>
+        <Button onClick={() => onDelete(id)} padding={'auto'}>
+          Del
+        </Button>
       </ButtonWrapper>
     </EducationItemWrapper>
   );
@@ -48,7 +51,7 @@ const EducationItemWrapper = styled.div`
 `;
 
 const ButtonWrapper = styled.div`
-display: flex;
-justify-content: flex-end;
-`
+  display: flex;
+  justify-content: flex-end;
+`;
 export default EducationItem;

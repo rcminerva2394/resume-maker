@@ -1,12 +1,12 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
-import AddInput from "../../Utils/AddInput";
-import { SkillsContext } from "../../Main";
-import { v4 as uuidv4 } from "uuid";
+import AddInput from '../../Utils/AddInput';
+import { SkillsContext } from '../../Main';
 
 const AddSkill = ({ type, title, placeholder }) => {
   const { setSkills } = useContext(SkillsContext);
-  const [newSkill, setNewSkill] = useState("");
+  const [newSkill, setNewSkill] = useState('');
 
   const newSkillHandler = (e) => {
     setNewSkill(e.target.value);

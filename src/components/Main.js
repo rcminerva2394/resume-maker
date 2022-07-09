@@ -1,56 +1,57 @@
-import React, { useState, useRef, createContext, useMemo } from "react";
+import React, { useState, useRef, createContext, useMemo } from 'react';
+// External libraries should always be first before internal libraries
+import { v4 as uuidv4 } from 'uuid';
+import { useReactToPrint } from 'react-to-print';
 
-import styled from "styled-components";
-import BtnGrp from "./BtnGrp/BtnGrp";
-import EditForm from "./EditForm/EditForm";
-import PrevForm from "./PrevForm/PrevForm";
-import { v4 as uuidv4 } from "uuid";
-import { useReactToPrint } from "react-to-print";
-import ChangeTheme from "./ChangingTheme/ChangeTheme";
+import styled from 'styled-components';
+import BtnGrp from './BtnGrp/BtnGrp';
+import EditForm from './EditForm/EditForm';
+import PrevForm from './PrevForm/PrevForm';
+import ChangeTheme from './ChangingTheme/ChangeTheme';
 
 const PLACEHOLDER =
-  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia molestiae quas vel sint commodi repudiandae consequuntur. sint commodi repudiandae consequuntur";
+  'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia molestiae quas vel sint commodi repudiandae consequuntur. sint commodi repudiandae consequuntur';
 
 const INITIALSOCLINKS = [
-  { name: "website", link: "", id: uuidv4() },
-  { name: "linkedin", link: "", id: uuidv4() },
-  { name: "github", link: "", id: uuidv4() },
-  { name: "twitter", link: "", id: uuidv4() },
-  { name: "facebook", link: "", id: uuidv4() },
-  { name: "youtube", link: "", id: uuidv4() },
+  { name: 'website', link: '', id: uuidv4() },
+  { name: 'linkedin', link: '', id: uuidv4() },
+  { name: 'github', link: '', id: uuidv4() },
+  { name: 'twitter', link: '', id: uuidv4() },
+  { name: 'facebook', link: '', id: uuidv4() },
+  { name: 'youtube', link: '', id: uuidv4() },
 ];
 
 const SKILLS = {
   tools: [
-    { name: "CLICK ME TO EDIT", id: uuidv4() },
-    { name: "HTML", id: uuidv4() },
-    { name: "CSS", id: uuidv4() },
-    { name: "JavaScript", id: uuidv4() },
+    { name: 'CLICK ME TO EDIT', id: uuidv4() },
+    { name: 'HTML', id: uuidv4() },
+    { name: 'CSS', id: uuidv4() },
+    { name: 'JavaScript', id: uuidv4() },
   ],
   soft: [
-    { name: "CLICK ME TO EDIT", id: uuidv4() },
-    { name: "Adaptability", id: uuidv4() },
-    { name: "Time Mgmt", id: uuidv4() },
-    { name: "Communication", id: uuidv4() },
+    { name: 'CLICK ME TO EDIT', id: uuidv4() },
+    { name: 'Adaptability', id: uuidv4() },
+    { name: 'Time Mgmt', id: uuidv4() },
+    { name: 'Communication', id: uuidv4() },
   ],
 };
 
 const PERSONALINFO = {
-  firstname: "SAMPLE",
-  lastname: "NAME",
-  job: "Full-stack web developer",
-  email: "sampleemail@gmail.com",
-  number: "(63)963-234667",
-  address: "155 4th St. Ste 1050 San Francisco, CA 94103, USA",
+  firstname: 'SAMPLE',
+  lastname: 'NAME',
+  job: 'Full-stack web developer',
+  email: 'sampleemail@gmail.com',
+  number: '(63)963-234667',
+  address: '155 4th St. Ste 1050 San Francisco, CA 94103, USA',
 };
 
 const EXPERIENCE = [
   {
     id: uuidv4(),
-    position: "Frontend Developer",
-    company: "Company Name",
-    from: "Feb 2022",
-    to: "May 2022",
+    position: 'Frontend Developer',
+    company: 'Company Name',
+    from: 'Feb 2022',
+    to: 'May 2022',
     description: PLACEHOLDER,
   },
 ];
@@ -59,9 +60,9 @@ const EDUCATION = [
   {
     id: uuidv4(),
     course: "Course Name or Bachelor's Degree",
-    school: "University of Simple People",
-    from: "June 2012",
-    to: "June 2016",
+    school: 'University of Simple People',
+    from: 'June 2012',
+    to: 'June 2016',
   },
 ];
 
@@ -71,7 +72,7 @@ export const SkillsContext = createContext({
 });
 
 export const ThemeColor = createContext({
-  hexTheme: "",
+  hexTheme: '',
   setHexTheme: () => {},
 });
 
@@ -85,7 +86,7 @@ const Main = () => {
   const [personalInfo, setPersonalInfo] = useState(PERSONALINFO);
   const [experience, setExperience] = useState(EXPERIENCE);
   const [education, setEducation] = useState(EDUCATION);
-  const [hexTheme, setHexTheme] = useState("#645D5D");
+  const [hexTheme, setHexTheme] = useState('#645D5D');
   const colorValue = { hexTheme, setHexTheme };
 
   const editPrev = (e) => {
@@ -142,11 +143,11 @@ const Main = () => {
         ...prevExperience,
         {
           id: uuidv4(),
-          position: "",
-          company: "",
-          from: "",
-          to: "",
-          description: "",
+          position: '',
+          company: '',
+          from: '',
+          to: '',
+          description: '',
         },
       ];
     });
@@ -176,10 +177,10 @@ const Main = () => {
         ...prevEducation,
         {
           id: uuidv4(),
-          course: "",
-          school: "",
-          from: "",
-          to: "",
+          course: '',
+          school: '',
+          from: '',
+          to: '',
         },
       ];
     });

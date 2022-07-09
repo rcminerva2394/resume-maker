@@ -1,29 +1,29 @@
-import React, {useContext} from "react";
+import React, { useContext } from 'react';
+import styled from 'styled-components';
 
-import { Icon } from "../Utils/Icon";
-import styled from "styled-components";
-import { ThemeColor } from "../Main";
+import { Icon } from '../Utils/Icon';
+import { ThemeColor } from '../Main';
 
 const PersonalInfo = ({ personalInfo }) => {
   const { hexTheme } = useContext(ThemeColor);
   return (
     <PersonalInfoWrapper>
       <Wrapper>
-        <FullName color= {hexTheme}>{personalInfo.firstname}</FullName>
-        <FullName color= {hexTheme}>{personalInfo.lastname}</FullName>
+        <FullName color={hexTheme}>{personalInfo.firstname}</FullName>
+        <FullName color={hexTheme}>{personalInfo.lastname}</FullName>
         <Job>{personalInfo.job}</Job>
       </Wrapper>
       <Wrapper>
         <Contact>
-          <Icon name={"email"} />
+          <Icon name={'email'} />
           <p>{personalInfo.email}</p>
         </Contact>
         <Contact>
-          <Icon name={"phone"} />
+          <Icon name={'phone'} />
           <p>{personalInfo.number}</p>
         </Contact>
         <Contact>
-          <Icon name={"address"} />
+          <Icon name={'address'} />
           <p>{personalInfo.address}</p>
         </Contact>
       </Wrapper>
@@ -33,10 +33,10 @@ const PersonalInfo = ({ personalInfo }) => {
 
 const FullName = styled.p`
   font-size: 45rem;
-  font-family: "Bebas Neue";
+  font-family: 'Bebas Neue';
   font-weight: bold;
   line-height: 0;
-  color: ${props => props.color};
+  color: ${(props) => props.color};
 `;
 
 const Job = styled.p`
