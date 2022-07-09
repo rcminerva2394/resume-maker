@@ -1,10 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const PersonalInfo = ({ personalInfo, onChangePersonalInfo }) => {
   return (
     <PersonalInfoWrapper>
+      {/* REFACTOR you can use my new UI Input component here :) */}
       <Input
         type="text"
         placeholder="First name"

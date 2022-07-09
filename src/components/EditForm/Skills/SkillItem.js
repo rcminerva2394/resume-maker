@@ -1,14 +1,14 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext } from 'react';
+import styled, { css } from 'styled-components';
 
-import styled, { css } from "styled-components";
-import Button from "../../Utils/Button";
-import { SkillsContext, ThemeColor } from "../../Main";
+import Button from '../../Utils/Button';
+import { SkillsContext, ThemeColor } from '../../Main';
 
 const SkillItem = ({ type, id, skill }) => {
   const [isSkillEditing, setIsSkillEditing] = useState(false);
   const [editedSkill, setIsEditedSkill] = useState(skill);
   const { skills, setSkills } = useContext(SkillsContext);
-  const {hexTheme} = useContext(ThemeColor)
+  const { hexTheme } = useContext(ThemeColor);
 
   const editSkillHandler = () => {
     setIsSkillEditing(true);
@@ -62,25 +62,27 @@ const SkillItem = ({ type, id, skill }) => {
             </label>
             <Button
               type="submit"
-              height={"28px"}
-              padding={"auto"}
-              fontSize={"12rem"}
+              height={'28px'}
+              padding={'auto'}
+              fontSize={'12rem'}
               primary
             >
               Save
             </Button>
           </form>
           <Button
-            height={"28px"}
-            padding={"auto"}
-            fontSize={"12rem"}
+            height={'28px'}
+            padding={'auto'}
+            fontSize={'12rem'}
             onClick={delSkillHandler}
           >
             Del
           </Button>
         </FormDeleteWrapper>
       ) : (
-        <SkillPiece onClick={editSkillHandler} color={hexTheme}>{skill}</SkillPiece>
+        <SkillPiece onClick={editSkillHandler} color={hexTheme}>
+          {skill}
+        </SkillPiece>
       )}
     </>
   );
@@ -99,13 +101,13 @@ const baseSkillStyle = css`
 
 const SkillPiece = styled.li`
   ${baseSkillStyle}
-  background-color: ${props => props.color}
+  background-color: ${(props) => props.color}
 `;
 
 const SkillInput = styled.input`
   ${baseSkillStyle}
   width: 75%;
-  background-color: ${props => props.color}
+  background-color: ${(props) => props.color};
 `;
 
 const FormDeleteWrapper = styled.div`

@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
+import styled from 'styled-components';
 
-import EducationItem from "./EducationItem";
-import SectionWrapper from "../../Utils/SectionWrapper";
-import Button from "../../Utils/Button";
-import styled from "styled-components";
-import { Icon } from "../../Utils/Icon";
+import EducationItem from './EducationItem';
+import SectionWrapper from '../../Utils/SectionWrapper';
+import Button from '../../Utils/Button';
+import { Icon } from '../../Utils/Icon';
 
 const Education = ({
   education,
@@ -28,8 +28,8 @@ const Education = ({
         <Button
           onClick={onAddEducation}
           tertiary
-          padding={"auto"}
-          margin={"5rem"}
+          padding={'auto'}
+          margin={'5rem'}
         >
           <Icon name="plus" /> Add Education
         </Button>

@@ -1,27 +1,18 @@
-import React from "react";
+import React from 'react';
+import styled from 'styled-components';
 
-import SideBar from "../Utils/SideBar";
-import SectionWrapper from "../Utils/SectionWrapper";
-import Skills from "./Skills";
-import WebSocItem from "./WebSocItem";
-import MainContent from "../Utils/MainContent";
-import PersonalInfo from "./PersonalInfo";
-import ExperienceItem from "./ExperienceItem";
-import EducationItem from "./EducationItem";
-
-import styled from "styled-components";
+import SideBar from '../Utils/SideBar';
+import SectionWrapper from '../Utils/SectionWrapper';
+import Skills from './Skills';
+import WebSocItem from './WebSocItem';
+import MainContent from '../Utils/MainContent';
+import PersonalInfo from './PersonalInfo';
+import ExperienceItem from './ExperienceItem';
+import EducationItem from './EducationItem';
 
 const PrevForm = React.forwardRef(
   (
-    {
-      photo,
-      aboutMe,
-      socLinks,
-      skills,
-      personalInfo,
-      experience,
-      education,
-    },
+    { photo, aboutMe, socLinks, skills, personalInfo, experience, education },
     ref
   ) => {
     const experienceItems = experience.map((experienceItem) => (
@@ -47,8 +38,8 @@ const PrevForm = React.forwardRef(
             <ul>{socLinkItems}</ul>
           </SectionWrapper>
           <SectionWrapper title="Skills" isLast={true}>
-            <Skills skills={skills.tools} title={"Tools"}></Skills>
-            <Skills skills={skills.soft} title={"Soft Skills"}></Skills>
+            <Skills skills={skills.tools} title={'Tools'}></Skills>
+            <Skills skills={skills.soft} title={'Soft Skills'}></Skills>
           </SectionWrapper>
         </SideBar>
         <MainContent>
@@ -69,7 +60,7 @@ const BondPaper = styled.div`
   display: flex;
   flex-direction: row;
   width: 210mm;
-  height: ${(props) => (props.isEditForm ? "100%" : "297mm")};
+  height: ${(props) => (props.isEditForm ? '100%' : '297mm')};
   background-color: white;
   border: 1px solid #f5f5f5;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);

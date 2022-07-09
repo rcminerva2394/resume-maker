@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
+import styled from 'styled-components';
 
-import Button from "./Button";
-import styled from "styled-components";
-import { Icon } from "../Utils/Icon";
+import Button from './Button';
+import { Icon } from '../Utils/Icon';
 
 const AddInput = ({ onChange, onSubmit, placeholder }) => {
   return (
@@ -16,12 +16,12 @@ const AddInput = ({ onChange, onSubmit, placeholder }) => {
       </label>
       <Button
         type="submit"
-        height={"25px"}
-        padding={"auto"}
-        fontSize={"12rem"}
+        height={'25px'}
+        padding={'auto'}
+        fontSize={'12rem'}
         tertiary
       >
-        <Icon name={"plus"} />
+        <Icon name={'plus'} />
       </Button>
     </Form>
   );

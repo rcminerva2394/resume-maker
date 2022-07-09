@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -6,8 +6,19 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
 }
 
+#root{
+    /* Solution to have a sticky footer on the bottom */
+    /* You can refer to https://stackoverflow.com/questions/643879/css-to-make-html-page-footer-stay-at-bottom-of-the-page-with-a-minimum-height-b */
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    min-height: 100vh;
+}
+
 html { 
     font-size: 6.25%; 
+    /* This is for having a sticky footer on the bottom */
+    height: 100%
 }
 
 body {
@@ -15,7 +26,7 @@ body {
     font-family: 'Nunito Sans', sans-serif;
     text-rendering: geometricPrecision !important;
     font-size: 13rem;
-    min-height: 100%;
+    /* Removed hin-height instead I put it in your root div */
     background-color: ${({ theme }) => theme.colors.mainBackground};
     line-height: 1.4;
 }
