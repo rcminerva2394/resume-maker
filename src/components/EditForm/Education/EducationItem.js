@@ -7,6 +7,7 @@ import Button from '../../Utils/Button';
 const EducationItem = ({ id, onChange, educationItem, onDelete }) => {
   return (
     <EducationItemWrapper>
+      {/* REFACTOR you can use my new UI Input component here :) */}
       <input
         type="text"
         name="course"
