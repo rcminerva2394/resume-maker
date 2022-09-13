@@ -1,20 +1,20 @@
-import React from "react";
+import React from 'react';
 
-import SectionWrapper from "../Utils/SectionWrapper";
+import SectionWrapper from '../Utils/SectionWrapper';
 
 const AboutMe = ({ onAboutMe, aboutMe }) => {
-  return (
-    <SectionWrapper title="About Me">
-      <textarea
-        placeholder="Write something about yourself of not more than 250 characters"
-        rows="5"
-        autoCorrect="on"
-        maxLength="250"
-        value={aboutMe}
-        onChange={(e) => onAboutMe(e.target.value)}
-      ></textarea>
-    </SectionWrapper>
-  );
+    return (
+        <SectionWrapper title='About Me'>
+            <textarea
+                placeholder='Write something about yourself of not more than 250 characters'
+                rows='5'
+                autoCorrect='on'
+                minLength='200'
+                value={aboutMe}
+                onChange={(e) => onAboutMe(e.target.value)}
+            ></textarea>
+        </SectionWrapper>
+    );
 };
 
 export default AboutMe;
