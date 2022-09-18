@@ -40,7 +40,7 @@ const ExperienceItem = ({ id, experienceItem, onChange, onDelete }) => {
                 onChange={(e) => onChange(e, id)}
                 value={experienceItem.description}
                 rows='3'
-                minLength={'200'}
+                minLength={200}
             ></textarea>
             <ButtonWrapper>
                 <Button onClick={() => onDelete(id)} padding={'auto'}>
